@@ -1,122 +1,274 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+
+import {
+  Lexer,
+  Parser,
+  SemanticAnalyzer,
+  IRGenerator,
+  optimize,
+  verifyOptimization,
+} from "./compiler";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [source, setSource] = useState(`
+int a = 10;
+int b = a + 5;
+return b;
+`);
+
+  const [result, setResult] = useState<any>(null);
+
+  function compile() {
+    try {
+      // 1. Lexical analysis
+      const lexer = new Lexer(source);
+      const tokens = lexer.tokenize();
+
+      // 2. Parsing
+      const parser = new Parser(tokens);
+      const ast = parser.parse();
+
+      // 3. Semantic analysis
+      const semantic = new SemanticAnalyzer();
+      const semanticResult = semantic.analyze(ast);
+
+      if (!semanticResult.success) {
+        setResult({
+          error: semanticResult.errors
+            .map((error) => error.message)
+            .join("\n"),
+        });
+
+        return;
+      }
+
+      // 4. TAC generation
+      const generator = new IRGenerator();
+      const originalIR = generator.generate(ast);
+
+      const originalInstructions =
+        originalIR.getInstructions();
+
+      // 5. Optimization
+      const optimizationResult = optimize(
+        originalInstructions,
+        {
+          constantPropagation: true,
+          constantFolding: true,
+        }
+      );
+
+      // 6. Verification
+      const verification = verifyOptimization(
+        originalInstructions,
+        optimizationResult.instructions
+      );
+
+      setResult({
+        tokens,
+        ast,
+        originalTAC: originalIR.toText(),
+        optimizedTAC:
+          optimizationResult.instructions
+            .map((instruction) => {
+              if (instruction.kind === "assign") {
+                return `${instruction.target} = ${instruction.value}`;
+              }
+
+              if (instruction.kind === "binary") {
+                return (
+                  `${instruction.target} = ` +
+                  `${instruction.left} ` +
+                  `${instruction.operator} ` +
+                  `${instruction.right}`
+                );
+              }
+
+              return `return ${instruction.value}`;
+            })
+            .join("\n"),
+        logs: optimizationResult.logs,
+        verification,
+      });
+    } catch (error) {
+      setResult({
+        error:
+          error instanceof Error
+            ? error.message
+            : "Unknown compiler error.",
+      });
+    }
+  }
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+    <div
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "30px",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <h1>OptiVerify</h1>
+
+      <p>
+        Interactive Compiler Optimization Verification
+      </p>
+
+      <h2>MiniC Source Code</h2>
+
+      <textarea
+        value={source}
+        onChange={(event) =>
+          setSource(event.target.value)
+        }
+        rows={10}
+        style={{
+          width: "100%",
+          fontFamily: "monospace",
+          fontSize: "16px",
+          padding: "12px",
+        }}
+      />
+
+      <br />
+      <br />
+
+      <button
+        onClick={compile}
+        style={{
+          padding: "10px 20px",
+          fontSize: "16px",
+          cursor: "pointer",
+        }}
+      >
+        Compile & Verify
+      </button>
+
+      {result?.error && (
+        <pre
+          style={{
+            marginTop: "20px",
+            padding: "15px",
+            background: "#ffe5e5",
+          }}
         >
-          Count is {count}
-        </button>
-      </section>
+          {result.error}
+        </pre>
+      )}
 
-      <div className="ticks"></div>
+      {result && !result.error && (
+        <>
+          <h2>Original TAC</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+          <pre
+            style={{
+              background: "#f4f4f4",
+              padding: "15px",
+            }}
+          >
+            {result.originalTAC}
+          </pre>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          <h2>Optimized TAC</h2>
+
+          <pre
+            style={{
+              background: "#f4f4f4",
+              padding: "15px",
+            }}
+          >
+            {result.optimizedTAC}
+          </pre>
+
+          <h2>Optimization Log</h2>
+
+          {result.logs.length === 0 ? (
+            <p>No optimizations were applied.</p>
+          ) : (
+            result.logs.map(
+              (
+                log: {
+                  pass: string;
+                  before: string;
+                  after: string;
+                  reason: string;
+                },
+                index: number
+              ) => (
+                <div
+                  key={index}
+                  style={{
+                    border: "1px solid #ddd",
+                    padding: "12px",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <strong>{log.pass}</strong>
+
+                  <p>
+                    <b>Before:</b> {log.before}
+                  </p>
+
+                  <p>
+                    <b>After:</b> {log.after}
+                  </p>
+
+                  <p>
+                    <b>Why:</b> {log.reason}
+                  </p>
+                </div>
+              )
+            )
+          )}
+
+          <h2>Verification</h2>
+
+          <div
+            style={{
+              padding: "20px",
+              border: "2px solid",
+            }}
+          >
+            <h3>
+              {result.verification.passed
+                ? "✓ Verification Passed"
+                : "✗ Verification Failed"}
+            </h3>
+
+            <p>
+              Original result:{" "}
+              {result.verification.original.returnValue}
+            </p>
+
+            <p>
+              Optimized result:{" "}
+              {result.verification.optimized.returnValue}
+            </p>
+
+            <p>
+              {result.verification.message}
+            </p>
+          </div>
+
+          <h2>Optimization Dependency</h2>
+
+          <pre
+            style={{
+              background: "#f4f4f4",
+              padding: "15px",
+            }}
+          >
+{`Constant Propagation
+        ↓
+exposes constant expression
+        ↓
+Constant Folding`}
+          </pre>
+        </>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
