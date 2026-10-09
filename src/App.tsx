@@ -248,7 +248,6 @@ fontFamily: "Arial, sans-serif",
         <p>{result.verification.message}</p>
       </div>
 
-      ```
   <h2>Optimization Dependency</h2>
 
   <pre style={outputStyle}>
