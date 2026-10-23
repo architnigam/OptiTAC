@@ -1,4 +1,5 @@
 import type { TACInstruction } from "../ir";
+import { isNumeric, numericText } from '../numeric';
 
 export interface FoldingLog {
   pass: string;
@@ -9,7 +10,7 @@ export interface FoldingLog {
 }
 
 function isNumber(value: string): boolean {
-  return /^-?\d+(\.\d+)?$/.test(value);
+  return isNumeric(value);
 }
 
 function calculate(
@@ -60,7 +61,7 @@ export function constantFolding(
     const left = Number(instruction.left);
     const right = Number(instruction.right);
 
-    if (instruction.operator === "/" && right === 0) {
+    if ((instruction.operator === "/" || instruction.operator === "%") && right === 0) {
       return instruction;
     }
 
@@ -70,11 +71,13 @@ export function constantFolding(
       right
     );
 
+    if (!Number.isFinite(value)) return instruction;
+
     const updated: TACInstruction = {
       id: instruction.id,
       kind: "assign",
       target: instruction.target,
-      value: String(value),
+      value: numericText(value),
     };
 
     logs.push({

@@ -1,3 +1,4 @@
+
 import type { TACInstruction } from "../ir";
 
 import {
@@ -5,9 +6,10 @@ import {
   type OptimizationLog,
 } from "./constantPropagation";
 
-import {
-  constantFolding,
-} from "./constantFolding";
+import { constantFolding } from "./constantFolding";
+import { commonSubexpressionElimination } from "./commonSubexpressionElimination";
+import { copyPropagation } from "./copyPropogation";
+import { deadCodeElimination } from "./deadCodeElimination";
 
 export interface OptimizationOptions {
   constantPropagation: boolean;
@@ -24,24 +26,46 @@ export function optimize(
   options: OptimizationOptions
 ): OptimizationResult {
   let current = [...instructions];
-  let logs: OptimizationLog[] = [];
+  const logs: OptimizationLog[] = [];
 
-  if (options.constantPropagation) {
-    const result = constantPropagation(current);
+  // Repeat because one optimization may enable another.
+  for (let iteration = 0; iteration < 10; iteration++) {
+    const before = JSON.stringify(current);
 
-    current = result.instructions;
-    logs = [...logs, ...result.logs];
+    if (options.constantPropagation) {
+      const result = constantPropagation(current);
+      current = result.instructions;
+      logs.push(...result.logs);
+    }
+
+    if (options.constantFolding) {
+      const result = constantFolding(current);
+      current = result.instructions;
+      logs.push(...result.logs);
+    }
+
+    {
+      const result = commonSubexpressionElimination(current);
+      current = result.instructions;
+      logs.push(...result.logs);
+    }
+
+    {
+      const result = copyPropagation(current);
+      current = result.instructions;
+      logs.push(...result.logs);
+    }
+
+    {
+      const result = deadCodeElimination(current);
+      current = result.instructions;
+      logs.push(...result.logs);
+    }
+
+    if (JSON.stringify(current) === before) {
+      break;
+    }
   }
 
-  if (options.constantFolding) {
-    const result = constantFolding(current);
-
-    current = result.instructions;
-    logs = [...logs, ...result.logs];
-  }
-
-  return {
-    instructions: current,
-    logs,
-  };
+  return { instructions: current, logs };
 }

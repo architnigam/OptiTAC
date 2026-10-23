@@ -79,7 +79,8 @@ export class IRGenerator {
       ir
     );
 
-    const temp = `t${this.nextTemp++}`;
+    // '$' cannot occur in source identifiers, avoiding user/temp collisions.
+    const temp = `$t${this.nextTemp++}`;
 
     ir.add({
       id: this.nextId++,

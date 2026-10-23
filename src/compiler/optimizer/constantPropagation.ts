@@ -1,4 +1,6 @@
+
 import type { TACInstruction } from "../ir";
+import { isNumeric } from '../numeric';
 
 export interface OptimizationLog {
   pass: string;
@@ -8,110 +10,91 @@ export interface OptimizationLog {
   reason: string;
 }
 
-function instructionToText(
-  instruction: TACInstruction
-): string {
+const isNumber = (value: string) =>
+  isNumeric(value);
+
+function text(instruction: TACInstruction): string {
   if (instruction.kind === "assign") {
     return `${instruction.target} = ${instruction.value}`;
   }
-
   if (instruction.kind === "binary") {
-    return (
-      `${instruction.target} = ` +
-      `${instruction.left} ${instruction.operator} ${instruction.right}`
-    );
+    return `${instruction.target} = ${instruction.left} ${instruction.operator} ${instruction.right}`;
   }
-
   return `return ${instruction.value}`;
 }
 
 export function constantPropagation(
   instructions: TACInstruction[]
-): {
-  instructions: TACInstruction[];
-  logs: OptimizationLog[];
-} {
+): { instructions: TACInstruction[]; logs: OptimizationLog[] } {
   const constants = new Map<string, string>();
   const logs: OptimizationLog[] = [];
+  const result: TACInstruction[] = [];
 
-  const result = instructions.map((instruction) => {
-    if (instruction.kind === "assign") {
-      if (/^-?\d+(\.\d+)?$/.test(instruction.value)) {
-        constants.set(instruction.target, instruction.value);
-      }
-
-      if (constants.has(instruction.value)) {
-        const before = instructionToText(instruction);
-        const replacement = constants.get(instruction.value)!;
-
-        const updated = {
-          ...instruction,
-          value: replacement,
-        };
-
-        logs.push({
-          pass: "Constant Propagation",
-          instructionId: instruction.id,
-          before,
-          after: instructionToText(updated),
-          reason:
-            `${instruction.value} has a known constant value ` +
-            `${replacement}.`,
-        });
-
-        constants.set(instruction.target, replacement);
-
-        return updated;
-      }
-
-      return instruction;
-    }
-
-    if (instruction.kind === "binary") {
-      const before = instructionToText(instruction);
-
-      const left = constants.get(instruction.left)
-        ?? instruction.left;
-
-      const right = constants.get(instruction.right)
-        ?? instruction.right;
-
-      const updated = {
-        ...instruction,
-        left,
-        right,
-      };
-
-      if (before !== instructionToText(updated)) {
-        logs.push({
-          pass: "Constant Propagation",
-          instructionId: instruction.id,
-          before,
-          after: instructionToText(updated),
-          reason:
-            "A variable used in this expression has a known constant value.",
-        });
-      }
-
-      return updated;
-    }
-
+  for (const instruction of instructions) {
     if (instruction.kind === "return") {
-      const value =
-        constants.get(instruction.value)
-        ?? instruction.value;
+      const value = constants.get(instruction.value) ?? instruction.value;
+      const updated = { ...instruction, value };
 
-      return {
-        ...instruction,
-        value,
-      };
+      if (value !== instruction.value) {
+        logs.push({
+          pass: "Constant Propagation",
+          instructionId: instruction.id,
+          before: text(instruction),
+          after: text(updated),
+          reason: "Replaced a variable with its known constant value."
+        });
+      }
+
+      result.push(updated);
+      continue;
     }
 
-    return instruction;
-  });
+    if (instruction.kind === "assign") {
+      const value = constants.get(instruction.value) ?? instruction.value;
 
-  return {
-    instructions: result,
-    logs,
-  };
+      // Reassignment invalidates the old value of this variable.
+      constants.delete(instruction.target);
+
+      const updated = { ...instruction, value };
+
+      if (value !== instruction.value) {
+        logs.push({
+          pass: "Constant Propagation",
+          instructionId: instruction.id,
+          before: text(instruction),
+          after: text(updated),
+          reason: "Replaced a variable with its known constant value."
+        });
+      }
+
+      if (isNumber(value)) {
+        constants.set(instruction.target, value);
+      }
+
+      result.push(updated);
+      continue;
+    }
+
+    // A binary instruction changes its target's value.
+    const left = constants.get(instruction.left) ?? instruction.left;
+    const right = constants.get(instruction.right) ?? instruction.right;
+
+    constants.delete(instruction.target);
+
+    const updated = { ...instruction, left, right };
+
+    if (left !== instruction.left || right !== instruction.right) {
+      logs.push({
+        pass: "Constant Propagation",
+        instructionId: instruction.id,
+        before: text(instruction),
+        after: text(updated),
+        reason: "Replaced operands with known constant values."
+      });
+    }
+
+    result.push(updated);
+  }
+
+  return { instructions: result, logs };
 }

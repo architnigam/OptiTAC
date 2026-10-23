@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generated local validation and presentation previews
+tmp/
+.chart-data-*/
