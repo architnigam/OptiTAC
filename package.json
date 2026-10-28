@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run --maxWorkers=1",
+    "train:ml": "node scripts/train-ml.mjs",
+    "evaluate:ml": "node scripts/evaluate-ml.mjs"
   },
   "dependencies": {
     "@dagrejs/dagre": "^3.1.1",

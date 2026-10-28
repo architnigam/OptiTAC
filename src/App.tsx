@@ -1,79 +1,151 @@
-import { useEffect, useMemo, useState } from 'react';
-import { allPasses, instructionText, outcome, passes } from './compiler/lab';
-import { runJourney, type Stage } from './compiler/journey';
-import { scout } from './compiler/ml/scout';
-import { places, presets, questions, type Place } from './town/content';
-import { ShopArt } from './town/ShopArt';
-import { Code, Fold, OptimizationView, Quiz, ScoutView, SyntaxView, TacView, TokenView, TypesView, VerificationView } from './town/StageViews';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import type { Analysis } from './core/analyze';
+import type { Language } from './core/types';
+import { numberText } from './core/numbers';
+import { examples, steps } from './lab/content';
+import { Code, Fold, FlowView, OptimizeView, ResultsView, Tree, TypeView } from './lab/Views';
+import { programSummary } from './lab/format';
+import { NativeArtifacts } from './lab/NativeArtifacts';
 import './App.css';
-
-type View = 'town' | 'pipeline' | Place;
-const stampKey = 'optitac-passport-v1';
-function savedStamps(): string[] {
-  try { const value: unknown = JSON.parse(localStorage.getItem(stampKey) || '[]'); return Array.isArray(value) ? [...new Set(value.filter((x): x is string => typeof x === 'string' && questions.some(q => q.id === x)))] : []; }
-  catch { return []; }
+interface Settings {
+    source: string;
+    language: Language;
+    inputText: string;
+    budget: number;
+    mutation: boolean;
+    ml: boolean;
+    example: string;
 }
+interface NativeResult {
+    available: boolean;
+    success?: boolean;
+    compiler: string;
+    dialect: string;
+    diagnostics: string;
+    wrapper: boolean;
+}
+interface RecordRun {
+    id: number;
+    analysis: Analysis;
+    settings: Settings;
+}
+const initial: Settings = { source: examples[0].source, language: examples[0].language, inputText: examples[0].inputs, budget: 20000, mutation: false, ml: true, example: examples[0].id };
+const stampKey = 'optitac-lab-challenges-v2';
+const saved = () => { try {
+    const data: unknown = JSON.parse(localStorage.getItem(stampKey) || '[]');
+    return Array.isArray(data) ? data.filter((x): x is string => typeof x === 'string' && examples.some(e => e.id === x)) : [];
+}
+catch {
+    return [];
+} };
 function App() {
-  const [view, setView] = useState<View>('town');
-  const [source, setSource] = useState(presets[0].source);
-  const [example, setExample] = useState('0');
-  const [enabled, setEnabled] = useState(allPasses);
-  const [fault, setFault] = useState(false);
-  const [journey, setJourney] = useState(() => runJourney(presets[0].source));
-  const [earned, setEarned] = useState(savedStamps);
-  const [visited, setVisited] = useState<string[]>([]);
-  const [cursor, setCursor] = useState(0);
-  const [playing, setPlaying] = useState(false);
-  const [notice, setNotice] = useState('Your first parcel is ready. Visit any shop to look inside.');
-  const result = journey.result;
-  const report = useMemo(() => result ? scout(result.original) : undefined, [result]);
-  const shop = places.find(p => p.id === view);
-  const stageIndex = places.findIndex(p => p.id === view);
-  const stale = source !== journey.source || (result && (fault !== result.injectFault || JSON.stringify(enabled) !== JSON.stringify(result.enabled)));
-  useEffect(() => { try { localStorage.setItem(stampKey, JSON.stringify(earned)); } catch { /* Session still works without storage. */ } }, [earned]);
-  useEffect(() => {
-    if (!playing) return;
-    const timer = window.setInterval(() => setCursor(previous => {
-      const maximum = journey.error ? places.findIndex(p => p.id === journey.error?.stage) : 5;
-      return previous < maximum ? previous + 1 : previous;
-    }), 1000);
-    return () => window.clearInterval(timer);
-  }, [playing, journey]);
-  useEffect(() => {
-    const maximum = journey.error ? places.findIndex(p => p.id === journey.error?.stage) : 5;
-    if (cursor >= maximum && playing) { const timer = setTimeout(() => setPlaying(false), 0); return () => clearTimeout(timer); }
-  }, [cursor, journey, playing]);
-  function visit(next: View) {
-    setView(next); setPlaying(false);
-    if (places.some(p => p.id === next)) setVisited(previous => previous.includes(next) ? previous : [...previous, next]);
-  }
-  function compile() {
-    const next = runJourney(source, enabled, fault);
-    setJourney(next); setCursor(0); setPlaying(false);
-    setNotice(next.error ? `Parcel stopped at ${places.find(p => p.id === next.error?.stage)?.name}. Earlier artifacts are still available.` : 'Parcel compiled. Visit the shops or play its journey through town.');
-  }
-  function earn(id: string) { setEarned(previous => previous.includes(id) ? previous : [...previous, id]); }
-  function download() {
-    const data = { format: 'optitac-town-v1', semantics: 'JavaScript Number; concrete execution observations', journey, scout: report };
-    const json = JSON.stringify(data, (_, value) => typeof value === 'number' && (!Number.isFinite(value) || Object.is(value, -0)) ? { numericValue: Object.is(value, -0) ? '-0' : String(value) } : value, 2);
-    const url = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
-    const link = document.createElement('a'); link.href = url; link.download = 'optitac-journey.json'; link.click(); URL.revokeObjectURL(url);
-  }
-  const status = (id: string) => journey.error?.stage === id ? 'Stopped here' : journey.completed.includes(id as Stage) ? 'Parcel ready' : ['scout', 'arcade'].includes(id) ? id === 'scout' ? result ? 'Scout ready' : 'Needs TAC' : 'Open to all' : 'Awaiting parcel';
-  const stageHasArtifact = view === 'tokens' ? journey.tokens.length > 0 : view === 'syntax' ? Boolean(journey.ast) : view === 'types' ? journey.completed.includes('syntax') : Boolean(result);
-  const current = places[cursor];
-  return <main className="portal">
-    <header className="site-header"><a href="#town" className="brand" onClick={e => { e.preventDefault(); visit('town'); }}><span className="brand-symbol">oT</span><span>optiTAC<small>COMPILER TOWN</small></span></a><nav aria-label="Main navigation"><button className={view === 'town' ? 'active' : ''} onClick={() => visit('town')}>Town map</button><button className={view === 'pipeline' ? 'active' : ''} onClick={() => visit('pipeline')}>Pipeline express</button><button className={view === 'arcade' ? 'active' : ''} onClick={() => visit('arcade')}>Challenges <span>{earned.length}/7</span></button></nav><span className="header-note">A place to see how code works.</span></header>
-    <div className="portal-layout"><aside className="source-sidebar"><div className="sidebar-heading"><span className="overline">YOUR PARCEL</span><span className="parcel-icon" aria-hidden="true">▧</span></div><h2>A program for the town.</h2><label className="field-label" htmlFor="example">Choose a delivery</label><select id="example" value={example} onChange={e => { setExample(e.target.value); setSource(presets[Number(e.target.value)].source); }}><option value="" disabled>Custom program</option>{presets.map((p, i) => <option value={i} key={p.name}>{p.name}</option>)}</select><p className="delivery-goal">{example === '' ? 'Your own program, the same compiler journey.' : presets[Number(example)].goal}</p><label className="field-label" htmlFor="source">MiniC source</label><textarea id="source" value={source} spellCheck={false} onChange={e => { setSource(e.target.value); setExample(''); }} /><p className="source-hint">int / float · arithmetic · parentheses · return</p><button className="compile-button" onClick={compile}>Send through town <span>→</span></button><p role="status" className="compile-notice">{stale ? 'Source or settings changed. Send again to refresh the parcel.' : notice}</p><details className="sidebar-options"><summary>Passes & experiments</summary><fieldset><legend>Selected optimization passes</legend>{passes.map(p => <label key={p.id}><input type="checkbox" checked={enabled.includes(p.id)} onChange={e => setEnabled(e.target.checked ? [...enabled, p.id] : enabled.filter(id => id !== p.id))} />{p.name}</label>)}</fieldset><label className="fault-option"><input type="checkbox" checked={fault} onChange={e => setFault(e.target.checked)} />Inject a wrong return (demo)</label><p className="source-hint">The fault is a controlled experiment, not a normal optimization.</p></details><button className="export-button" onClick={download}>Export journey evidence ↓</button><section className="passport"><p className="overline">YOUR COMPILER PASSPORT</p><div className="stamp-row" aria-label={`${earned.length} of 7 stamps earned`}>{questions.map((q, i) => <button key={q.id} title={places[i].name} aria-label={`${places[i].name}: ${earned.includes(q.id) ? 'stamp earned' : 'challenge available'}`} className={earned.includes(q.id) ? 'earned' : ''} onClick={() => visit(q.id)}>{earned.includes(q.id) ? '✓' : i + 1}</button>)}</div><p>{earned.length} of 7 stamps · {visited.length} places visited</p>{earned.length > 0 && <button className="text-button" onClick={() => setEarned([])}>Reset passport</button>}</section></aside>
-    <div className="destination">
-      {view === 'town' && <><section className="town-intro"><div><p className="overline">WELCOME TO COMPILER TOWN</p><h1>A little town.<br /><em>A whole compiler.</em></h1><p>Bring a program. Visit the workshops. Find out what each stage makes of it.</p></div><div className="town-sign"><span>THIS WAY TO</span><strong>The working pipeline</strong><button onClick={() => visit('pipeline')}>Take the express ↗</button></div></section><section className="town-map" aria-label="Compiler town map"><div className="map-caption"><span>THE WORKSHOP DISTRICT</span><span>Click a building to step inside</span></div><div className="shop-grid">{places.map(p => <button className={`shop ${p.color}`} key={p.id} onClick={() => visit(p.id)} aria-label={`Visit ${p.name}: ${p.role}`}><span className="shop-number">{p.number}</span><ShopArt shop={p} /><strong>{p.name}</strong><span className="shop-role">{p.role}</span><small className={journey.error?.stage === p.id ? 'stopped' : ''}>{status(p.id)} {earned.includes(p.id) && '· ★'}</small></button>)}</div><div className="town-street" aria-hidden="true"><span>← FRONTEND LANE</span><span className="street-parcel">▧</span><span>EVIDENCE WALK →</span></div><div className="map-footer"><span>Each stop explains one part of the journey.</span><span>All doors are open. Explore in any order.</span></div></section><section className="town-bottom"><div><span className="overline">A SCOUT, NOT AN ORACLE</span><h3>A prediction you can question.</h3><p>Our local ML scout suggests a pass to investigate. Then the compiler measures what actually happens.</p><button className="text-button" onClick={() => visit('scout')}>Meet the scout →</button></div><div><span className="overline">LEARN BY NOTICING</span><h3>Shorter is not always safer.</h3><p>Send the hidden-trap delivery to discover why deleting unused code can erase a runtime error.</p><button className="text-button" onClick={() => { setSource(presets[1].source); setExample('1'); setNotice('Hidden trap loaded. Send it through town to inspect the error.'); }}>Load the hidden trap →</button></div></section></>}
-      {view === 'pipeline' && <section className="pipeline-page"><p className="overline">PIPELINE EXPRESS</p><h1>The whole journey.</h1><div className="replay-controls"><button className="primary" onClick={() => { if (!playing && cursor >= (journey.error ? places.findIndex(p => p.id === journey.error?.stage) : 5)) setCursor(0); setPlaying(!playing); }}>{playing ? 'Pause journey' : 'Play journey'}</button><button onClick={() => { setCursor(0); setPlaying(false); }}>Rewind</button><span>Visual replay · compilation already executed</span></div><div className="pipeline-track" aria-label="Pipeline stages">{places.slice(0,6).map((p, i) => <button key={p.id} className={`${i === cursor ? 'current' : ''} ${journey.error?.stage === p.id ? 'failed' : ''}`} aria-pressed={cursor === i} onClick={() => { setCursor(i); setPlaying(false); }}><span className="pipeline-node">{i === cursor ? '▧' : journey.completed.includes(p.id as Stage) ? '✓' : i + 1}</span><strong>{p.role.split(' & ')[0]}</strong><small>{status(p.id)}</small></button>)}</div><div className="express-stats"><div><span>Source tokens</span><strong>{journey.tokens.length ? journey.tokens.length - 1 : '—'}</strong></div><div><span>Original → optimized TAC</span><strong>{result ? `${result.original.length} → ${result.instructions.length}` : '—'}</strong></div><div><span>Recorded pass steps</span><strong>{result?.snapshots.length ?? '—'}</strong></div><div><span>Observed outcome</span><strong>{result ? result.firstDivergence < 0 ? 'Preserved' : 'Diverged' : 'Stopped'}</strong></div></div><div className="express-payload"><div className="payload-title"><h2>{current.name}</h2><button className="text-button" onClick={() => visit(current.id)}>Step inside →</button></div>{journey.error?.stage === current.id ? <pre className="error" role="alert">{journey.error.message}</pre> : current.id === 'tokens' ? <div className="compact-tokens">{journey.tokens.map((t,i) => <code key={i}>{t.lexeme || 'EOF'}</code>)}</div> : current.id === 'syntax' ? <Code lines={journey.ast ? [JSON.stringify(journey.ast, null, 2)] : ['Awaiting syntax tree.']} /> : current.id === 'types' ? <Code lines={journey.symbols.map(s => `${s.dataType} ${s.name} · initialized=${s.initialized}`)} /> : current.id === 'tac' ? <Code lines={result?.original.map(instructionText) ?? ['Awaiting TAC.']} /> : current.id === 'optimize' ? <Code lines={result?.instructions.map(instructionText) ?? ['Awaiting optimization.']} /> : <Code lines={result ? [`Original:  ${outcome(result.baseline)}`, `Optimized: ${outcome(result.final)}`] : ['Awaiting execution.']} />}</div></section>}
-      {shop && <section className={`shop-interior ${shop.color}`} key={view}><div className="breadcrumbs"><button onClick={() => visit('town')}>Town map</button><span>/</span><span>{shop.name}</span></div><header className="shop-heading"><div><p className="overline">STOP {shop.number} / {shop.role.toUpperCase()}</p><h1>{shop.name}</h1><p>{shop.label}.</p></div><ShopArt shop={shop} /></header><div className="interior-body"><Fold title="Why this stop exists" open><p>{shop.why}</p></Fold>{stale && <p className="feedback">You are inspecting the last compiled parcel. Send again to apply your changes.</p>}{journey.error?.stage === view && <pre className="error" role="alert">{journey.error.message}</pre>}{view !== 'arcade' && !stageHasArtifact && <p className="empty-note">{journey.error ? `The parcel stopped at ${places.find(p => p.id === journey.error?.stage)?.name}. Fix the source and send it again to produce this artifact.` : 'Send a program through town to inspect this stage.'}</p>}
-        {view === 'tokens' && journey.tokens.length > 0 && <TokenView journey={journey} />}{view === 'syntax' && <SyntaxView journey={journey} />}{view === 'types' && journey.completed.includes('syntax') && <TypesView journey={journey} />}{view === 'tac' && result && <TacView result={result} />}{view === 'optimize' && result && <OptimizationView key={JSON.stringify([journey.source, result.enabled, result.injectFault])} result={result} />}{view === 'verify' && result && <VerificationView result={result} />}{view === 'scout' && report && <ScoutView report={report} onInvestigate={() => visit('optimize')} />}
-        {view === 'arcade' ? <><div className="challenge-intro"><h2>{earned.length === 7 ? 'Your passport is complete.' : 'Seven small discoveries.'}</h2><p>One stamp for each correct answer. Wrong answers explain the idea, and you can try again. Stamps stay in this browser when storage is available.</p></div>{questions.map(q => <Quiz key={q.id} place={q.id} earned={earned} onEarn={earn} />)}</> : <Quiz key={view} place={view as Place} earned={earned} onEarn={earn} />}
-        <nav className="neighbor-shops" aria-label="Neighboring shops">{stageIndex > 0 ? <button onClick={() => visit(places[stageIndex - 1].id)}>← {places[stageIndex - 1].name}</button> : <button onClick={() => visit('town')}>← Town map</button>}{stageIndex < places.length - 1 && <button onClick={() => visit(places[stageIndex + 1].id)}>{places[stageIndex + 1].name} →</button>}</nav></div></section>}
-    </div></div><footer className="site-footer"><span>optiTAC · Compiler Town</span><span>Local compilation. Local ML. Your source stays in this page.</span><span>JavaScript numeric semantics · straight-line MiniC subset</span></footer>
-  </main>;
+    const [form, setForm] = useState<Settings>(initial);
+    const [record, setRecord] = useState<RecordRun>();
+    const [native, setNative] = useState<{
+        id: number;
+        data?: NativeResult;
+    }>();
+    const [busy, setBusy] = useState(true);
+    const [error, setError] = useState('');
+    const [step, setStep] = useState(0);
+    const [playing, setPlaying] = useState(false);
+    const [scope, setScope] = useState(false);
+    const [selectedToken, setSelectedToken] = useState(0);
+    const [answer, setAnswer] = useState('');
+    const [feedback, setFeedback] = useState('');
+    const [earned, setEarned] = useState(saved);
+    const worker = useRef<Worker | null>(null), latest = useRef(0), pending = useRef<Settings>(initial), nativeAbort = useRef<AbortController | null>(null), sourceBox = useRef<HTMLTextAreaElement>(null);
+    const createWorker = useCallback(() => {
+        const w = new Worker(new URL('./core/worker.ts', import.meta.url), { type: 'module' });
+        w.onmessage = (event: MessageEvent<{
+            id: number;
+            result?: Analysis;
+            error?: string;
+        }>) => {
+            if (event.data.id !== latest.current)
+                return;
+            setBusy(false);
+            if (event.data.error || !event.data.result) {
+                setError(event.data.error || 'Analysis worker returned no result.');
+                return;
+            }
+            const analysis = event.data.result, id = event.data.id, settings = { ...pending.current };
+            setRecord({ id, analysis, settings });
+            setNative({ id });
+            nativeAbort.current?.abort();
+            const abort = new AbortController();
+            nativeAbort.current = abort;
+            const timer = setTimeout(() => abort.abort(), 7000);
+            void fetch('/api/native-check', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source: analysis.source, language: analysis.language, snippet: analysis.program?.snippet ?? false }), signal: abort.signal })
+                .then(async (response) => { if (!response.ok)
+                throw new Error('Native service is unavailable in this deployment.'); return await response.json() as NativeResult; })
+                .then(data => { if (id === latest.current)
+                setNative({ id, data }); })
+                .catch(() => { if (id === latest.current)
+                setNative({ id, data: { available: false, compiler: 'not available', dialect: analysis.language === 'c' ? 'c11' : 'c++14', diagnostics: 'Native syntax service could not be reached. The visual interpreter still supports the documented subset; no native-check claim is made.', wrapper: false } }); })
+                .finally(() => clearTimeout(timer));
+        };
+        w.onerror = () => { setBusy(false); setError('The analysis worker stopped. Retry analysis; the previous result has not been replaced.'); };
+        worker.current = w;
+        return w;
+    }, []);
+    useEffect(() => { const w = createWorker(); latest.current = 1; pending.current = initial; w.postMessage({ id: 1, ...initial, inputs: initial.inputText.split('\n') }); return () => { w.terminate(); worker.current = null; nativeAbort.current?.abort(); }; }, [createWorker]);
+    useEffect(() => { try {
+        localStorage.setItem(stampKey, JSON.stringify(earned));
+    }
+    catch { /* Challenges work without persistence. */ } }, [earned]);
+    useEffect(() => { if (!playing)
+        return; const timer = setTimeout(() => { if (step < steps.length - 1)
+        setStep(step + 1);
+    else
+        setPlaying(false); }, 1800); return () => clearTimeout(timer); }, [playing, step]);
+    const analysis = record?.analysis, active = steps[step], stale = !!record && (form.source !== record.settings.source || form.language !== record.settings.language || form.inputText !== record.settings.inputText || form.budget !== record.settings.budget || form.mutation !== record.settings.mutation || form.ml !== record.settings.ml);
+    const nativeData = native?.id === record?.id ? native?.data : undefined, nativePending = !!record && native?.id === record.id && !native?.data, nativeRejected = nativeData?.available === true && nativeData.success === false;
+    const example = examples.find(e => e.id === form.example);
+    function submit() { setBusy(true); setError(''); setPlaying(false); setFeedback(''); nativeAbort.current?.abort(); latest.current++; pending.current = { ...form }; const w = worker.current ?? createWorker(); w.postMessage({ id: latest.current, ...form, inputs: form.inputText.split('\n').map(s => s.replace(/\\n/g, '\n')) }); }
+    function cancel() { latest.current++; worker.current?.terminate(); worker.current = null; nativeAbort.current?.abort(); setBusy(false); setError('Analysis cancelled. Previous evidence remains available.'); }
+    function load(id: string) { const e = examples.find(e => e.id === id)!; setForm({ ...form, source: e.source, language: e.language, inputText: e.inputs, example: e.id }); setAnswer(''); setFeedback(''); setPlaying(false); }
+    function checkAnswer() { if (!analysis || stale || busy || nativePending || nativeRejected)
+        return; const result = analysis.reference[0]; if (!result || result.status === 'limited' || result.status === 'error') {
+        setFeedback('This execution has no challenge answer. Resolve its diagnostic first.');
+        return;
+    } const expected = result.status === 'undefined' ? 'undefined' : result.stdout ? result.stdout.trimEnd() : numberText(result.returnValue!.value); if (answer.replace(/\\n/g, '\n').trimEnd() === expected) {
+        setFeedback('Correct. Your prediction agrees with the observed first case.');
+        if (record?.settings.example)
+            setEarned(previous => previous.includes(record.settings.example) ? previous : [...previous, record.settings.example]);
+    }
+    else
+        setFeedback('Not quite. Follow the loop, type conversions and short-circuit paths, then try again. You can inspect Results for the observed answer.'); }
+    function selectToken(index: number) { setSelectedToken(index); if (!analysis || stale)
+        return; const token = analysis.tokens[index]; const lines = form.source.split('\n'); const offset = lines.slice(0, token.line - 1).reduce((n, line) => n + line.length + 1, 0) + token.column - 1; sourceBox.current?.focus(); sourceBox.current?.setSelectionRange(offset, offset + token.text.length); }
+    function exportEvidence() { if (!record)
+        return; const data = { format: 'optitac-guarded-lab-v1', record, native: nativeData, contract: 'Bounded concrete evidence for a documented C/C++ scalar subset; not universal equivalence.' }; const json = JSON.stringify(data, (_, v) => typeof v === 'number' && (!Number.isFinite(v) || Object.is(v, -0)) ? { number: Object.is(v, -0) ? '-0' : String(v) } : v, 2); const url = URL.createObjectURL(new Blob([json], { type: 'application/json' })); const link = document.createElement('a'); link.href = url; link.download = 'optitac-evidence.json'; link.click(); URL.revokeObjectURL(url); }
+    return <main className="lab-app">
+  <header className="app-header"><a className="brand" href="#" onClick={e => e.preventDefault()}><span className="brand-mark">oT</span><span>optiTAC<small>THE INTERACTIVE COMPILER LAB</small></span></a><div className="header-actions"><span className="challenge-count">★ {earned.length} discoveries</span><button onClick={() => setScope(!scope)} aria-expanded={scope}>{scope ? 'Close scope' : 'What can it run?'}</button></div></header>
+  {scope && <section className="scope-panel"><h2>A clear execution contract.</h2><div className="scope-columns"><div><h3>Visual execution</h3><p>C/C++ scalar programs: initialized or uninitialized declarations, assignments, casts, unary/binary operators, if/else, while/for, break/continue, block scope, scalar functions and bounded recursion. Basic printf/scanf, cout/cin and numeric math helpers are supported.</p></div><div><h3>Native syntax checking</h3><p>The local GCC/G++ service checks a broader C11/C++14 translation unit, including supported standard headers, classes and containers. Submitted programs are never executed as native binaries by this service.</p></div><div><h3>Explicit boundaries</h3><p>Arrays, general pointers, templates, class execution, macros, full standard-library behavior and arbitrary C/C++ programs are outside the visual interpreter. Unsupported constructs stop visibly. Validation covers the supplied cases, not every possible input.</p></div></div></section>}
+  <section className="intro"><div><p className="eyebrow">LESS NAVIGATION. MORE DISCOVERY.</p><h1>Write a program.<br /><em>Follow the evidence.</em></h1><p>Six stops, one workspace. See how C and C++ become instructions—and challenge the transformations along the way.</p></div><div className="intro-note"><span>NEW IN THE LAB</span><strong>Learn. Search. Check.</strong><p>A trained ML advisor guides optimization search. Behavior checks and boundary probes keep the evidence visible.</p></div></section>
+  <div className="workspace"><aside className="editor-pane"><div className="pane-heading"><h2>Your program</h2><span>{form.source.split('\n').length} lines</span></div><div className="editor-controls"><label>Language<select aria-label="Language" value={form.language} onChange={e => setForm({ ...form, language: e.target.value as Language, example: '' })}><option value="c">C · C11</option><option value="cpp">C++ · C++14</option></select></label><label>Try an example<select aria-label="Example" value={form.example} onChange={e => load(e.target.value)}><option value="" disabled>Custom program</option>{examples.map(e => <option key={e.id} value={e.id}>{e.name}{earned.includes(e.id) ? ' ★' : ''}</option>)}</select></label></div><label className="sr-only" htmlFor="source">Source code</label><textarea ref={sourceBox} id="source" spellCheck={false} value={form.source} onChange={e => setForm({ ...form, source: e.target.value, example: '' })}/><button className="analyze-button" disabled={busy} onClick={submit}>{busy ? 'Analyzing in background…' : 'Analyze program'}<span>→</span></button>{busy && <button className="cancel-button" onClick={cancel}>Cancel analysis</button>}<p className="editor-status" role="status">{error || (stale ? 'Source or settings changed. Analyze again to refresh the evidence.' : busy ? 'The compiler is working in a Web Worker; the editor stays responsive.' : record ? 'Evidence ready. Choose a step to inspect it.' : 'Ready when you are.')}</p><Fold title="Input cases & search settings" open><label className="field-label" htmlFor="inputs">One stdin case per line · empty means no input</label><textarea className="input-cases" id="inputs" value={form.inputText} onChange={e => setForm({ ...form, inputText: e.target.value })}/><p className="muted">Up to 12 cases. Use \n inside a case for a literal newline.</p><label className="budget-label">Execution budget<select aria-label="Execution budget" value={form.budget} onChange={e => setForm({ ...form, budget: Number(e.target.value) })}><option value={20000}>20,000 interpreter steps</option><option value={100000}>100,000 interpreter steps</option></select></label><label className="mutation-option"><input type="checkbox" checked={form.ml} onChange={e => setForm({ ...form, ml: e.target.checked })}/>Use trained ML guidance</label><label className="mutation-option"><input type="checkbox" checked={form.mutation} onChange={e => setForm({ ...form, mutation: e.target.checked })}/>Include one deliberately broken candidate</label><p className="muted">An optional bug-hunt experiment. It is never eligible for selection.</p></Fold><div className="editor-bottom"><button disabled={!record || busy} onClick={exportEvidence}>Export evidence ↓</button><button disabled={!analysis || busy} onClick={() => { if (step === 5)
+        setStep(0); setPlaying(!playing); }}>{playing ? 'Pause walkthrough' : 'Play walkthrough ▷'}</button></div>
+   <Fold title={`Quick challenge${earned.includes(form.example) ? ' · solved ★' : ''}`}><p>{example?.mission ?? 'Predict the first case’s stdout, or the typed return number if it prints nothing. Enter undefined for detected undefined behavior.'}</p><label className="field-label" htmlFor="prediction">Your prediction · omit the trailing newline</label><input id="prediction" value={answer} onChange={e => setAnswer(e.target.value)} placeholder="e.g. sum=15"/><button disabled={!analysis || stale || busy || nativePending || nativeRejected} onClick={checkAnswer}>Check prediction</button>{feedback && <p className="prediction-feedback" role="status">{feedback}</p>}</Fold>
+  </aside>
+  <section className="evidence-pane" aria-label="Compiler evidence"><div className="evidence-heading"><p className="eyebrow">THE WORKFLOW</p><span>{record ? `${record.analysis.inputs.length} input case${record.analysis.inputs.length === 1 ? '' : 's'}` : 'Preparing…'}</span></div><nav className="stepper" aria-label="Compiler stages">{steps.map((s, i) => <button key={s.id} aria-pressed={step === i} className={step === i ? 'active' : ''} onClick={() => { setStep(i); setPlaying(false); }}><span>{String(i + 1).padStart(2, '0')}</span><strong>{s.name}</strong></button>)}</nav>
+   {record && <div className="native-status"><span className={nativePending ? 'pending' : nativeRejected ? 'failed' : nativeData?.available ? 'passed' : 'unavailable'}>{nativePending ? 'Native check running' : nativeRejected ? 'Native compiler rejected input' : nativeData?.available ? 'Native syntax passed' : 'Native checker unavailable'}</span>{nativeData && <details><summary>{nativeData.compiler} · {nativeData.dialect}{nativeData.wrapper ? ' · snippet wrapper' : ''}</summary><Code>{nativeData.diagnostics}</Code></details>}</div>}
+   <div className="step-title"><div><p className="eyebrow">STEP {step + 1} OF SIX · {active.hint.toUpperCase()}</p><h2>{active.name}</h2></div><button onClick={() => { setStep(step === 5 ? 0 : step + 1); setPlaying(false); }}>{step === 5 ? 'Back to tokens ↶' : 'Next step →'}</button></div>
+   {stale && <p className="notice">You are viewing the last submitted program. Analyze again to apply edits.</p>}
+   <Fold title="What happens here?" open><p>{active.why}</p></Fold>
+   {busy && !analysis ? <div className="loading"><span className="loading-dot"/>Analyzing the program, constructing control flow and checking routes…</div> : analysis && <div className="stage-content" key={`${record?.id}-${step}`}>
+    {analysis.diagnostic && <div className="diagnostic" role="alert"><strong>{nativeData?.success ? 'Native syntax is valid; visual execution is unavailable' : analysis.diagnostic.code === 'UNSUPPORTED' ? 'Visual execution stops here' : `${analysis.diagnostic.stage}: ${analysis.diagnostic.code}`}</strong><p>{analysis.diagnostic.message}</p><small>Line {analysis.diagnostic.line}, column {analysis.diagnostic.column}</small></div>}
+    {active.id === 'tokens' && <><div className="token-summary"><span><b>{analysis.tokens.filter(t => t.category === 'Operator').length}</b> operators</span><span><b>{analysis.tokens.filter(t => t.category === 'Delimiter').length}</b> delimiters</span><span><b>{Math.max(0, analysis.tokens.length - 1)}</b> source tokens incl. directives</span></div><div className="token-list" aria-label="Classified tokens">{analysis.tokens.map((t, i) => <button key={i} className={`${t.category === 'Operator' ? 'operator' : t.category === 'Delimiter' ? 'delimiter' : ''} ${selectedToken === i ? 'selected' : ''}`} aria-pressed={selectedToken === i} onClick={() => selectToken(i)}><code>{t.text}</code><small>{t.category}</small></button>)}</div>{analysis.tokens[selectedToken] && <p className="token-location">{analysis.tokens[selectedToken].category} · line {analysis.tokens[selectedToken].line}, column {analysis.tokens[selectedToken].column}. {analysis.tokens[selectedToken].category === 'Operator' ? 'This performs or controls an operation; it is not classified as punctuation.' : ''}</p>}<Fold title="Complete token ledger"><div className="table-wrap"><table><thead><tr><th>Lexeme</th><th>Category</th><th>Line : column</th></tr></thead><tbody>{analysis.tokens.map((t, i) => <tr key={i}><td><code>{t.text}</code></td><td>{t.category}</td><td>{t.line}:{t.column}</td></tr>)}</tbody></table></div></Fold></>}
+    {active.id === 'syntax' && analysis.program && <><p className="muted">{programSummary(analysis.program)}</p><Tree value={analysis.program}/><Fold title="Raw abstract syntax tree"><Code>{JSON.stringify(analysis.program, null, 2)}</Code></Fold><Fold title="Precedence and evaluation order"><p>Unary operators precede multiplication/division/remainder, then addition/subtraction, shifts, comparisons, equality, bitwise operations, logical AND/OR, conditional selection and assignment. Assignment associates right-to-left.</p><p>Logical AND/OR and conditional expressions are lazy. Reads/writes that depend on unspecified operand order are rejected rather than evaluated using JavaScript’s convenient order.</p></Fold></>}
+    {active.id === 'types' && analysis.program && <TypeView analysis={analysis}/>}
+    {active.id === 'flow' && analysis.original && <FlowView analysis={analysis}/>}
+    {active.id === 'flow' && nativeData?.success && <Fold title="Compile-only native C/C++ artifacts" open={!analysis.original}><NativeArtifacts source={analysis.source} language={analysis.language} snippet={analysis.program?.snippet ?? false}/></Fold>}
+    {['optimize', 'results'].includes(active.id) && (nativePending || nativeRejected) ? <p className="notice warning">{nativePending ? 'Execution claims are withheld while the independent native syntax check is pending.' : 'Native compilation rejected this translation unit. Execution results are withheld; fix its diagnostics first.'}</p> : <>{active.id === 'optimize' && analysis.original && <OptimizeView analysis={analysis}/>}{active.id === 'results' && <ResultsView analysis={analysis}/>}</>}
+    {!analysis.program && active.id !== 'tokens' && !analysis.diagnostic && <p className="empty">Submit a supported program to produce this artifact.</p>}
+   </div>}
+   <nav className="step-footer" aria-label="Step navigation"><button disabled={step === 0} onClick={() => { setStep(step - 1); setPlaying(false); }}>← Previous</button><span>{playing ? 'Guided replay of completed analysis' : 'Explore freely · no locked steps'}</span><button disabled={step === 5} onClick={() => { setStep(step + 1); setPlaying(false); }}>Next →</button></nav>
+  </section></div><footer className="app-footer"><span>optiTAC · a compiler you can question</span><span>Local analysis · explicit language boundaries · evidence over accuracy claims</span></footer>
+ </main>;
 }
 export default App;
 

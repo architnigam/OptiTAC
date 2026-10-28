@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "modelId": "optitac-rf-v1-b675e3a7484c",
+  "seed": 2801026,
+  "datasetSha256": "b675e3a7484cdc1ab45efef4ae7b6ca0c55d57e736182eb3bea08199a059352c",
+  "programs": 1376,
+  "states": 4784,
+  "rejectedStates": 0,
+  "families": [
+    "constant-chains",
+    "constant-branches",
+    "bounded-loops",
+    "early-returns",
+    "scalar-functions",
+    "lexical-scopes",
+    "input-joins",
+    "floating-point",
+    "unreachable-tails",
+    "return-join-tails"
+  ],
+  "split": {
+    "train": [
+      "7:0",
+      "7:1",
+      "4:3",
+      "7:5",
+      "5:6",
+      "5:7",
+      "4:7",
+      "0:1",
+      "6:4",
+      "8:7",
+      "2:1",
+      "0:2",
+      "9:4",
+      "8:4",
+      "3:4",
+      "7:7",
+      "5:1",
+      "1:3",
+      "0:0",
+      "0:3",
+      "1:6",
+      "3:6",
+      "2:3",
+      "9:0",
+      "3:2",
+      "4:5",
+      "5:2",
+      "0:5",
+      "1:4",
+      "5:5",
+      "6:3",
+      "9:6",
+      "0:7",
+      "2:6",
+      "9:1",
+      "2:0",
+      "1:5",
+      "8:1",
+      "6:7",
+      "5:3",
+      "9:2",
+      "6:2",
+      "8:6",
+      "3:3",
+      "6:0",
+      "9:7",
+      "2:2",
+      "3:0",
+      "7:4",
+      "9:5"
+    ],
+    "validation": [
+      "6:6",
+      "7:2",
+      "0:6",
+      "3:1",
+      "4:1",
+      "0:4",
+      "1:2",
+      "4:2",
+      "5:4",
+      "1:0"
+    ],
+    "calibration": [
+      "3:7",
+      "4:0",
+      "6:1",
+      "5:0",
+      "8:3",
+      "8:0",
+      "9:3",
+      "2:7",
+      "3:5",
+      "1:1"
+    ],
+    "test": [
+      "2:5",
+      "7:3",
+      "8:2",
+      "2:4",
+      "1:7",
+      "6:5",
+      "4:4",
+      "4:6",
+      "8:5",
+      "7:6"
+    ]
+  },
+  "counts": {
+    "train": 2972,
+    "validation": 612,
+    "calibration": 652,
+    "test": 548
+  },
+  "configurations": [
+    {
+      "trees": 40,
+      "depth": 7,
+      "validation": {
+        "rows": 612,
+        "maeGainRatio": 0.005951932211210903,
+        "topChoiceAgreement": 1,
+        "informativeRows": 324,
+        "informativeAgreement": 1,
+        "meanRegretRatio": 0
+      }
+    },
+    {
+      "trees": 24,
+      "depth": 5,
+      "validation": {
+        "rows": 612,
+        "maeGainRatio": 0.009457372990021338,
+        "topChoiceAgreement": 1,
+        "informativeRows": 324,
+        "informativeAgreement": 1,
+        "meanRegretRatio": 0
+      }
+    }
+  ],
+  "selected": {
+    "trees": 40,
+    "depth": 7
+  },
+  "test": {
+    "rows": 548,
+    "maeGainRatio": 0.0044978445338109616,
+    "topChoiceAgreement": 1,
+    "informativeRows": 312,
+    "informativeAgreement": 1,
+    "meanRegretRatio": 0
+  },
+  "meanBaseline": {
+    "rows": 548,
+    "maeGainRatio": 0.08992995661430568,
+    "topChoiceAgreement": 0.5985401459854015,
+    "informativeRows": 312,
+    "informativeAgreement": 0.2948717948717949,
+    "meanRegretRatio": 0.11627583318563939
+  },
+  "zeroBaseline": {
+    "rows": 548,
+    "maeGainRatio": 0.06151542869872452,
+    "topChoiceAgreement": 0.5,
+    "informativeRows": 312,
+    "informativeAgreement": 0.12179487179487179,
+    "meanRegretRatio": 0.22157140276541845
+  },
+  "residualBand": [
+    0.002587736988701291,
+    0.09433873259577283,
+    0.02782751904363212,
+    0.01658813568178033
+  ],
+  "testBandCoverage": [
+    0.9306569343065694,
+    0.9671532846715328,
+    0.9708029197080292,
+    0.9397810218978102
+  ],
+  "limitations": [
+    "Synthetic, in-distribution evaluation; broad families occur in all splits.",
+    "Whole structural-template groups and their numeric/language variants stay in one split.",
+    "Labels measure static IR cost reduction, not CPU performance or semantic correctness.",
+    "Residual bands are calibration-set error quantiles, not correctness confidence or guaranteed coverage on new code.",
+    "AST and IR share numeric primitives. No native-execution oracle is used in model training."
+  ]
+}

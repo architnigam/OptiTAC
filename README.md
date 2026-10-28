@@ -1,63 +1,50 @@
-# OptiTAC / Compiler Town
+# OptiTAC · C/C++ Compiler Lab
 
-An interactive compiler-learning portal built with React, TypeScript and Vite. Write a small program, send it through town, and inspect the artifact at each shop.
+A local, interactive compiler lab with a simple source editor and six stages: Tokens, Syntax, Types, Flow & IR, Optimize, and Results. Guided replay, small prediction challenges, and persistent discovery stars add interaction without hiding the compiler artifacts.
 
-## Run locally
+## Run
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Open the local address printed by Vite. Compilation, nearest-neighbor inference and synthetic-model evaluation run in the browser. There is no API key, remote model or backend service. The application does not send source code over the network.
+Open the localhost URL printed by Vite. The visual engine runs in a browser worker. A localhost Vite service supplies **compile-only** GCC/G++ diagnostics and optional native compiler dumps. Submitted programs are never executed by that service. No API key, remote AI service, or model download is required.
 
-## Explore
+GCC/G++ are optional for visual analysis, but required for native checks and dumps. The service prefers the installed MSYS2 UCRT compiler; set `OPTITAC_CC` / `OPTITAC_CXX` to override it. Native dialects are C11 and C++14. It accepts documented standard headers, rejects custom includes/macros, and limits source size and compilation time. This is not a security sandbox.
 
-- **Token Post**: selectable tokens, kinds, lexemes, positions and the full token ledger.
-- **Syntax Studio**: expandable AST, grammar and operator-precedence explanations.
-- **Type Registry**: semantic diagnostics and a symbol table.
-- **TAC Forge**: stable instruction IDs, reserved temporaries and lowering explanations.
-- **Repair Garage**: Autopsy, Counterfactual, Structure and detailed Logs views.
-- **Watchtower**: original/optimized outcomes, traces and error preservation.
-- **Scout Office**: local ML predictions checked against isolated-pass measurements.
-- **Challenge Hall**: seven questions, explanatory feedback and persistent passport stamps.
-- **Pipeline Express**: play, pause, rewind and select stages in a visual replay of completed compilation. It is not a timing benchmark.
+## What is implemented
 
-The first delivery is compiled automatically. Editing source or settings leaves a stale-parcel message until **Send through town** is clicked. Earlier successful artifacts remain available if a later frontend stage fails. JSON evidence export includes the journey and scout report; non-finite numbers and signed zero use tagged numeric values rather than silently losing their meaning.
+- Positioned, selectable tokens with operators correctly separated from delimiters, including unary/compound/alternative C++ operators.
+- Parsing, lexical scope and type checking for scalar C/C++ programs with branches, loops, functions, recursion, casts, input and output.
+- Typed three-address IR, control-flow blocks, scope handling, and instruction traces.
+- Worklist conditional constant propagation, reachability, backward liveness, conservative dead-temporary elimination, and jump cleanup.
+- Bounded beam search over optimization orders, guarded by AST-versus-IR observations on supplied test inputs.
+- A bundled, offline-trained random forest ranks optimization passes, explains feature contributions, and falls back to default ordering outside its training envelope.
+- Automatically generated integer boundary-input probes check candidate behavior beyond the supplied cases; undefined and limited probes are explicitly excluded.
+- Autopsy, Counterfactual, Structure, and detailed Logs tabs, including intermediate-pass navigation and rejected-candidate counterexamples.
+- Real GCC original-tree, GIMPLE, CFG and optimized-GIMPLE artifacts for broader C/C++ constructs such as classes and standard containers.
+- JSON evidence export, stale-result handling, responsive layout, and cancellable worker analysis.
 
-## Language and semantics
+## Accuracy and scope
 
-Supported: initialized `int`/`float` declarations, identifiers, literals, arithmetic `+ - * / %`, parentheses and return expressions. Write negatives as `0 - n`; unary minus is not parsed. Runtime numbers use JavaScript Number, not fixed-width C integers. For example `5 / 2` is `2.5`. Division and remainder by zero are explicit interpreter errors. A matching error is a preserved observation, not a successful execution.
+The visual interpreter implements a documented scalar subset, **not all of C/C++**. Integers use checked signed 32-bit semantics; integer division truncates toward zero. Float operations round to binary32. Unsupported constructs, undefined behavior, and execution limits are reported explicitly. Broader native syntax acceptance does not imply visual execution support.
 
-No branches, loops, functions, external runtime inputs, CFG analysis or symbolic proof are implemented. Learning programs are limited to 20,000 source characters and 250 TAC instructions to bound trace growth. Five selected optimization passes run in a fixed order to convergence or ten rounds. Instruction count is not runtime speed.
+Optimization validation compares complete stdout and typed return values for up to 12 supplied input cases and eight eligible generated boundary probes. Passing those cases is evidence, not a proof for every possible input. Equal timeouts or undefined behavior never count as successful validation. The optional deliberately broken candidate is always ineligible for selection. ML only ranks search expansion; it never decides whether a transformation is correct.
 
-## Local ML scout
+The active model was trained on 1,376 unique generated source programs and 4,784 measured IR states, partitioned by whole structural template. Read the [model card and novelty details](docs/ml/model-card.md) for training, baselines, measured results and limitations. The current portal uses this model; the earlier nearest-neighbor Scout code is historical.
 
-`src/compiler/ml/scout.ts` implements a distance-weighted multi-output k-nearest-neighbor regressor with k=5. It stores 192 synthetic TAC training examples and holds out 48, using a deterministic generator and split. Seven structural features are standardized with training data only. Labels are isolated-pass rewrite counts, measured independently on original TAC. The model suggests a pass to investigate; it does not reorder the pipeline or certify optimization safety.
+See [implementation, novelty, and limitations](docs/compiler-lab.md) for the full contract and evaluation details. Earlier Compiler Town reports and slides describe a historical version; the active application is `src/App.tsx`, `src/core`, and `src/lab`. The legacy `src/compiler` engine is retained for its existing tests and is not the active UI engine.
 
-Current held-out results: 43/48 top-choice agreement (89.6%, ties accepted), versus 42/48 (87.5%) for the majority-pass baseline; mean absolute rewrite-count error 1.025. Structurally similar programs can occur in both splits. The one-case gain is not statistical evidence or a guarantee for arbitrary programs. All prediction/measurement disagreements remain visible.
-
-## Validation
+## Verification
 
 ```powershell
-npm test
 npm run build
 npm run lint
+npm test
+node scripts/lab-browser.mjs
+npm run train:ml
+npm run evaluate:ml
 ```
 
-The suite includes an independent arithmetic oracle over 60 generated expressions and all 32 enabled-pass subsets (1,920 program/subset combinations), 60 synthetic IR cases checked across all five isolated passes, numeric/error regressions, stage-failure retention and ML split/prediction checks. These finite checks do not establish universal compiler correctness.
-
-Browser QA: `node scripts/town-browser.mjs`. The script uses the Codex-bundled Playwright path and Microsoft Edge on this workstation; adapt its import for another machine. It covers all eight shops, challenge feedback and storage, replay, detailed logs, omissions, preserved traps, controlled injected faults, disabled passes, export, mobile layout and offline compilation/inference.
-
-## Project presentation
-
-`output/presentations/OptiTAC-Compiler-Town-Presentation.pptx` explains each stage, the experiments, ML method and measured results, tests, novelty and limits. Speaker notes include demonstration guidance and sources. Build source: `scripts/build-town-deck.mjs`; local export/finalization: `scripts/finalize-town-deck.mjs`. These presentation scripts use the bundled artifact runtime and are workstation-specific.
-
-## Related foundations
-
-- Nearest-neighbor regression: https://scikit-learn.org/stable/modules/neighbors.html
-- LLVM optimization debugging: https://llvm.org/docs/OptBisect.html
-- LLVM optimization remarks: https://llvm.org/docs/Remarks.html
-- Alive2 translation validation: https://github.com/AliveToolkit/alive2
-
-The proposed contribution is an integrated spatial learning workflow that connects compiler artifacts, error-aware experiments, counterfactual omissions and auditable ML predictions. Global novelty, publication acceptance and improved learning outcomes have not been established.
+The browser check uses the bundled Playwright runtime and Microsoft Edge available on this development machine. Compiler differential tests compare fixed, generated development fixtures with local GCC/G++; they do not expose arbitrary native execution through the application. Tests report their native cases as skipped if the compiler is unavailable. Browser screenshots and machine-readable verification results are written under ignored `tmp/lab/`.

@@ -1,0 +1,703 @@
+{
+  "modelId": "optitac-rf-v1-b675e3a7484c",
+  "programs": 17,
+  "pairedSearches": 51,
+  "budgets": [
+    1,
+    8,
+    32
+  ],
+  "modelReadyPrograms": 11,
+  "rawBestPassAgreement": 0.9411764705882353,
+  "guidedBetter": 3,
+  "equal": 48,
+  "guidedWorse": 0,
+  "observationFailures": 0,
+  "rows": [
+    {
+      "name": "sum",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 30,
+          "guidedCost": 30,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 1,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 24,
+          "guidedCost": 24,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 2,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 24,
+          "guidedCost": 24,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 2,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "even",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 33,
+          "guidedCost": 33,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 33,
+          "guidedCost": 33,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 33,
+          "guidedCost": 33,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "gcd",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 27,
+          "guidedCost": 27,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 8,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 27,
+          "guidedCost": 27,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 8,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 27,
+          "guidedCost": 27,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 8,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "factorial",
+      "modelStatus": "out-of-distribution",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 24,
+          "guidedCost": 24,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 24,
+          "guidedCost": 24,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 24,
+          "guidedCost": 24,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "division",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 17,
+          "guidedCost": 17,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 8,
+          "guidedCost": 8,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 8,
+          "guidedCost": 8,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "branches",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 20,
+          "guidedCost": 20,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 11,
+          "guidedCost": 11,
+          "baselineCandidates": 8,
+          "guidedCandidates": 8,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 9,
+          "guidedCost": 9,
+          "baselineCandidates": 10,
+          "guidedCandidates": 10,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "shortcircuit",
+      "modelStatus": "out-of-distribution",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 6,
+          "guidedCost": 6,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 3,
+          "guidedCost": 3,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 0,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 3,
+          "guidedCost": 3,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 0,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "recursive-fibonacci",
+      "modelStatus": "out-of-distribution",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 28,
+          "guidedCost": 28,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 28,
+          "guidedCost": 28,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 28,
+          "guidedCost": 28,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "dynamic-join",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 20,
+          "guidedCost": 20,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 20,
+          "guidedCost": 20,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 20,
+          "guidedCost": 20,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "lazy-effects",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 11,
+          "guidedCost": 11,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 11,
+          "guidedCost": 11,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 11,
+          "guidedCost": 11,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "nested-loop",
+      "modelStatus": "out-of-distribution",
+      "bestPassPredictionMatched": false,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 39,
+          "guidedCost": 39,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 39,
+          "guidedCost": 39,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 39,
+          "guidedCost": 39,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "float-rounding",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 14,
+          "guidedCost": 14,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 5,
+          "guidedCost": 5,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 5,
+          "guidedCost": 5,
+          "baselineCandidates": 2,
+          "guidedCandidates": 2,
+          "guidedStates": 1,
+          "eligibleProbes": 0,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "negative-division",
+      "modelStatus": "out-of-distribution",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 12,
+          "guidedCost": 12,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 12,
+          "guidedCost": 12,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 12,
+          "guidedCost": 12,
+          "baselineCandidates": 0,
+          "guidedCandidates": 0,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "negative-only-branch",
+      "modelStatus": "out-of-distribution",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 9,
+          "guidedCost": 9,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 9,
+          "guidedCost": 9,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 9,
+          "guidedCost": 9,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 0,
+          "eligibleProbes": 4,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "scope-and-break",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 29,
+          "guidedCost": 28,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 1,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 28,
+          "guidedCost": 28,
+          "baselineCandidates": 3,
+          "guidedCandidates": 3,
+          "guidedStates": 3,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 28,
+          "guidedCost": 28,
+          "baselineCandidates": 3,
+          "guidedCandidates": 3,
+          "guidedStates": 3,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "unreachable-output",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 23,
+          "guidedCost": 11,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 1,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 8,
+          "guidedCost": 8,
+          "baselineCandidates": 5,
+          "guidedCandidates": 5,
+          "guidedStates": 5,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 8,
+          "guidedCost": 8,
+          "baselineCandidates": 5,
+          "guidedCandidates": 5,
+          "guidedStates": 5,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    },
+    {
+      "name": "unreachable-loop",
+      "modelStatus": "ready",
+      "bestPassPredictionMatched": true,
+      "comparisons": [
+        {
+          "candidateBudget": 1,
+          "baselineCost": 24,
+          "guidedCost": 11,
+          "baselineCandidates": 1,
+          "guidedCandidates": 1,
+          "guidedStates": 1,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 8,
+          "baselineCost": 8,
+          "guidedCost": 8,
+          "baselineCandidates": 5,
+          "guidedCandidates": 5,
+          "guidedStates": 5,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        },
+        {
+          "candidateBudget": 32,
+          "baselineCost": 8,
+          "guidedCost": 8,
+          "baselineCandidates": 5,
+          "guidedCandidates": 5,
+          "guidedStates": 5,
+          "eligibleProbes": 3,
+          "excludedProbes": 0,
+          "allAcceptedObservationsMatch": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Small, hand-selected challenge set used during development, not an independent external benchmark.",
+    "These exact source programs are not added to training, but related structural families may be represented.",
+    "Static cost comparisons do not establish runtime performance improvements."
+  ]
+}

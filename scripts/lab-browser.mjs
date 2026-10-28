@@ -1,0 +1,43 @@
+import {chromium} from 'file:///C:/Users/hp/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import {spawn} from 'node:child_process';
+import fs from 'node:fs';
+fs.mkdirSync('tmp/lab',{recursive:true});
+const server=spawn(process.execPath,['node_modules/vite/bin/vite.js','--host','127.0.0.1','--port','5186','--strictPort'],{windowsHide:true,stdio:'ignore'});
+let browser;
+try{
+ for(let i=0;i<80;i++){try{await fetch('http://127.0.0.1:5186');break;}catch{await new Promise(r=>setTimeout(r,250));}}
+ browser=await chromium.launch({headless:true,channel:'msedge'});const page=await browser.newPage({viewport:{width:1440,height:1100}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:5186');
+ const analyze=page.locator('.analyze-button');
+ async function ready(){await page.locator('.analyze-button:not([disabled])').waitFor();await page.getByText('Native syntax passed',{exact:true}).waitFor({timeout:30000});}
+ await ready();
+ if(await page.locator('.stepper button').count()!==6)throw Error('Missing stage navigation');
+ const op=page.locator('.token-list button.operator').first();await op.click();const selected=await page.locator('#source').evaluate(e=>e.value.slice(e.selectionStart,e.selectionEnd));if(!selected)throw Error('Token source selection failed');
+ await page.screenshot({path:'tmp/lab/tokens.png',fullPage:true});
+ for(let i=1;i<6;i++){await page.locator('.stepper button').nth(i).click();await page.locator('.step-title h2').waitFor();await page.screenshot({path:`tmp/lab/stage-${i}.png`,fullPage:true});}
+ await page.getByRole('heading',{name:'15 (int)',exact:true}).waitFor();await page.getByText('sum=15',{exact:true}).waitFor();
+ await page.locator('#case').selectOption('2');await page.getByRole('heading',{name:'55 (int)',exact:true}).waitFor();
+ await page.locator('.editor-pane').getByText('Quick challenge',{exact:false}).click();await page.locator('#prediction').fill('sum=15');await page.getByRole('button',{name:'Check prediction',exact:true}).click();await page.getByText(/Correct\. Your prediction/).waitFor();
+ await page.getByText('★ 1 discoveries',{exact:true}).waitFor();
+ await page.locator('.stepper button').nth(4).click();
+ for(const name of ['Autopsy','Counterfactual','Structure','Logs']){await page.getByRole('button',{name,exact:true}).click();}
+ await page.locator('.ml-panel').waitFor();await page.getByText('Trained model active',{exact:true}).waitFor();await page.getByText('Training & independent holdout results',{exact:true}).click();await page.getByText(/generated C\/C\+\+ programs/).waitFor();await page.getByText('Predictions, evidence & why',{exact:true}).click();await page.getByRole('heading',{name:'Predicted versus measured candidate savings',exact:true}).waitFor();await page.screenshot({path:'tmp/lab/ml-advisor.png',fullPage:true});await page.getByText('Boundary-input audit',{exact:false}).first().click();await page.getByText(/Included in candidate checks/).first().waitFor();await page.getByText('Detailed rewrite log',{exact:true}).waitFor();await page.screenshot({path:'tmp/lab/logs.png',fullPage:true});
+ const exportPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export evidence'}).click();await(await exportPromise).saveAs('tmp/lab/evidence.json');
+ const evidence=JSON.parse(fs.readFileSync('tmp/lab/evidence.json','utf8'));if(evidence.format!=='optitac-guarded-lab-v1')throw Error('Incorrect evidence export');if(evidence.record.analysis.ml.status!=='ready'||!evidence.record.analysis.candidates.some(c=>c.prediction))throw Error('ML predictions not integrated into exported search');
+ // ML is genuinely connected, with an explicit default-order ablation.
+ await page.getByLabel('Use trained ML guidance',{exact:true}).uncheck();await analyze.click();await ready();await page.getByText('ML guidance off',{exact:true}).waitFor();await page.getByLabel('Use trained ML guidance',{exact:true}).check();await analyze.click();await ready();
+ // Every shipped example and its expected observation / boundary.
+ const samples=[['even','12\n'],['gcd','6\n'],['factorial','120\n'],['division','2 2.50\n'],['branches','20\n'],['undefined',null],['shortcircuit',''],['native',null]];
+ for(const[id,stdout]of samples){await page.getByLabel('Example',{exact:true}).selectOption(id);await analyze.click();await ready();await page.locator('.stepper button').nth(5).click();if(stdout!==null){if(stdout)await page.locator('.stage-content>.code').getByText(stdout.trim(),{exact:true}).waitFor();else await page.getByRole('heading',{name:'0 (int)',exact:true}).waitFor();}if(id==='undefined')await page.getByText('UNDEFINED BEHAVIOR DETECTED',{exact:true}).waitFor();if(id==='native'){await page.getByText('Native syntax is valid; visual execution is unavailable',{exact:true}).waitFor();await page.locator('.stepper button').nth(3).click();await page.getByRole('button',{name:'Generate GCC IR & CFG',exact:true}).click();await page.getByText('GIMPLE before optimization',{exact:true}).waitFor({timeout:30000});await page.locator('.native-artifacts').screenshot({path:'tmp/lab/native-debug.png'}); const dumps=await page.locator('.native-artifacts .code').allTextContents();if(!dumps.some(text=>text.includes('main')))throw Error('Missing native main: '+JSON.stringify(dumps));await page.screenshot({path:'tmp/lab/native-artifacts.png',fullPage:true});}}
+ // Seeded invalid candidate is rejected, never selected.
+ await page.getByLabel('Example',{exact:true}).selectOption('branches');await page.getByLabel('Include one deliberately broken candidate',{exact:true}).check();await analyze.click();await ready();await page.locator('.stepper button').nth(4).click();await page.getByRole('button',{name:'Autopsy',exact:true}).click();
+ await page.locator('#candidate').selectOption({index:await page.locator('#candidate option').count()-1});await page.getByText(/Deliberately broken return/).waitFor();await page.getByText(/Case 1:.*Counterexample/).waitFor();await page.screenshot({path:'tmp/lab/guard.png',fullPage:true});
+ await page.locator('.stepper button').nth(5).click();await page.getByRole('heading',{name:'20 (int)',exact:true}).waitFor();
+ // Invalid native syntax does not expose claimed execution results.
+ await page.locator('#source').fill('int main(){return 2}');await analyze.click();await analyze.waitFor();await page.getByText('Native compiler rejected input',{exact:true}).waitFor();await page.getByText(/Execution results are withheld/).waitFor();
+ // Reload passport, mobile stages and no overflow.
+ await page.reload();await ready();await page.getByText('★ 1 discoveries',{exact:true}).waitFor();await page.setViewportSize({width:390,height:844});
+ for(const i of [0,3,4,5]){await page.locator('.stepper button').nth(i).click();if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error(`Mobile overflow at stage ${i}`);await page.screenshot({path:`tmp/lab/mobile-${i}.png`,fullPage:true});}
+ await page.locator('.stepper button').nth(4).click();await page.getByText('Training & independent holdout results',{exact:true}).click();await page.getByText('Predictions, evidence & why',{exact:true}).click();if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Expanded ML mobile overflow');await page.screenshot({path:'tmp/lab/ml-mobile.png',fullPage:true});await page.getByRole('button',{name:'What can it run?',exact:true}).click();if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Scope mobile overflow');
+ if(errors.length)throw Error(errors.join('\n'));fs.writeFileSync('tmp/lab/browser-results.json',JSON.stringify({sixStages:true,trainedML:true,mlToggle:true,mlEvidence:true,boundaryAudit:true,worker:true,nativeCheck:true,operatorClassification:true,sourceSelection:true,allExamples:9,inputCases:true,logs:true,guardRejection:true,undefinedBehavior:true,nativeBoundary:true,passport:true,export:true,mobile:true,pageErrors:errors},null,2));console.log('Simplified lab browser checks passed.');
+}finally{await browser?.close();server.kill();server.unref();}
