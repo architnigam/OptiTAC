@@ -1,0 +1,842 @@
+[
+  {
+    "id": "rare-positive:0",
+    "family": "rare-positive",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==17)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:1",
+    "family": "rare-positive",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==54)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:2",
+    "family": "rare-positive",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==91)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:3",
+    "family": "rare-positive",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==128)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:4",
+    "family": "rare-positive",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==165)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:5",
+    "family": "rare-positive",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==18)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:6",
+    "family": "rare-positive",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==55)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:7",
+    "family": "rare-positive",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==92)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:8",
+    "family": "rare-positive",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==129)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:9",
+    "family": "rare-positive",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==166)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:10",
+    "family": "rare-positive",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==19)return 7;return 2;}"
+  },
+  {
+    "id": "rare-positive:11",
+    "family": "rare-positive",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==56)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:0",
+    "family": "rare-negative",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==-36)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:1",
+    "family": "rare-negative",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==-73)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:2",
+    "family": "rare-negative",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==-110)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:3",
+    "family": "rare-negative",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==-147)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:4",
+    "family": "rare-negative",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==-184)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:5",
+    "family": "rare-negative",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==-37)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:6",
+    "family": "rare-negative",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==-74)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:7",
+    "family": "rare-negative",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==-111)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:8",
+    "family": "rare-negative",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==-148)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:9",
+    "family": "rare-negative",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==-185)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:10",
+    "family": "rare-negative",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==-38)return 7;return 2;}"
+  },
+  {
+    "id": "rare-negative:11",
+    "family": "rare-negative",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==-75)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:0",
+    "family": "comparison-off-by-one",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n<55)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:1",
+    "family": "comparison-off-by-one",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n<92)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:2",
+    "family": "comparison-off-by-one",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n<129)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:3",
+    "family": "comparison-off-by-one",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n<166)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:4",
+    "family": "comparison-off-by-one",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n<19)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:5",
+    "family": "comparison-off-by-one",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n<56)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:6",
+    "family": "comparison-off-by-one",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n<93)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:7",
+    "family": "comparison-off-by-one",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n<130)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:8",
+    "family": "comparison-off-by-one",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n<167)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:9",
+    "family": "comparison-off-by-one",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n<20)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:10",
+    "family": "comparison-off-by-one",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n<57)return 7;return 2;}"
+  },
+  {
+    "id": "comparison-off-by-one:11",
+    "family": "comparison-off-by-one",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n<94)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:0",
+    "family": "affine-alias",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int x=n+9;if(x==83)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:1",
+    "family": "affine-alias",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int x=n+9;if(x==120)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:2",
+    "family": "affine-alias",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int x=n+9;if(x==157)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:3",
+    "family": "affine-alias",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int x=n+9;if(x==194)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:4",
+    "family": "affine-alias",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int x=n+9;if(x==47)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:5",
+    "family": "affine-alias",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int x=n+9;if(x==84)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:6",
+    "family": "affine-alias",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int x=n+9;if(x==121)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:7",
+    "family": "affine-alias",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int x=n+9;if(x==158)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:8",
+    "family": "affine-alias",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int x=n+9;if(x==195)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:9",
+    "family": "affine-alias",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int x=n+9;if(x==48)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:10",
+    "family": "affine-alias",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int x=n+9;if(x==85)return 7;return 2;}"
+  },
+  {
+    "id": "affine-alias:11",
+    "family": "affine-alias",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int x=n+9;if(x==122)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:0",
+    "family": "two-input-affine",
+    "language": "c",
+    "input": "300 5",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(3*n+pad==284)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:1",
+    "family": "two-input-affine",
+    "language": "cpp",
+    "input": "300 5",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(3*n+pad==395)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:2",
+    "family": "two-input-affine",
+    "language": "c",
+    "input": "300 5",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(3*n+pad==506)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:3",
+    "family": "two-input-affine",
+    "language": "cpp",
+    "input": "300 5",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(3*n+pad==65)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:4",
+    "family": "two-input-affine",
+    "language": "c",
+    "input": "300 5",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(3*n+pad==176)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:5",
+    "family": "two-input-affine",
+    "language": "cpp",
+    "input": "300 5",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(3*n+pad==287)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:6",
+    "family": "two-input-affine",
+    "language": "c",
+    "input": "300 5",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(3*n+pad==398)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:7",
+    "family": "two-input-affine",
+    "language": "cpp",
+    "input": "300 5",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(3*n+pad==509)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:8",
+    "family": "two-input-affine",
+    "language": "c",
+    "input": "300 5",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(3*n+pad==68)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:9",
+    "family": "two-input-affine",
+    "language": "cpp",
+    "input": "300 5",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(3*n+pad==179)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:10",
+    "family": "two-input-affine",
+    "language": "c",
+    "input": "300 5",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(3*n+pad==290)return 7;return 2;}"
+  },
+  {
+    "id": "two-input-affine:11",
+    "family": "two-input-affine",
+    "language": "cpp",
+    "input": "300 5",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(3*n+pad==401)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:0",
+    "family": "after-loop",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int z=0;for(int i=0;i<3;i++)z+=i;if(n==112)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:1",
+    "family": "after-loop",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int z=0;for(int i=0;i<3;i++)z+=i;if(n==149)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:2",
+    "family": "after-loop",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int z=0;for(int i=0;i<3;i++)z+=i;if(n==186)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:3",
+    "family": "after-loop",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int z=0;for(int i=0;i<3;i++)z+=i;if(n==39)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:4",
+    "family": "after-loop",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int z=0;for(int i=0;i<3;i++)z+=i;if(n==76)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:5",
+    "family": "after-loop",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int z=0;for(int i=0;i<3;i++)z+=i;if(n==113)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:6",
+    "family": "after-loop",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int z=0;for(int i=0;i<3;i++)z+=i;if(n==150)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:7",
+    "family": "after-loop",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int z=0;for(int i=0;i<3;i++)z+=i;if(n==187)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:8",
+    "family": "after-loop",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int z=0;for(int i=0;i<3;i++)z+=i;if(n==40)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:9",
+    "family": "after-loop",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int z=0;for(int i=0;i<3;i++)z+=i;if(n==77)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:10",
+    "family": "after-loop",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);int z=0;for(int i=0;i<3;i++)z+=i;if(n==114)return 7;return 2;}"
+  },
+  {
+    "id": "after-loop:11",
+    "family": "after-loop",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;int z=0;for(int i=0;i<3;i++)z+=i;if(n==151)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:0",
+    "family": "short-circuit",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==131 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:1",
+    "family": "short-circuit",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==168 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:2",
+    "family": "short-circuit",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==21 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:3",
+    "family": "short-circuit",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==58 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:4",
+    "family": "short-circuit",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==95 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:5",
+    "family": "short-circuit",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==132 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:6",
+    "family": "short-circuit",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==169 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:7",
+    "family": "short-circuit",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==22 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:8",
+    "family": "short-circuit",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==59 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:9",
+    "family": "short-circuit",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==96 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:10",
+    "family": "short-circuit",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==133 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "short-circuit:11",
+    "family": "short-circuit",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==170 && n>0)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:0",
+    "family": "nonlinear-control",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n*n==1)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:1",
+    "family": "nonlinear-control",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n*n==4)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:2",
+    "family": "nonlinear-control",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n*n==16)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:3",
+    "family": "nonlinear-control",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n*n==64)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:4",
+    "family": "nonlinear-control",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n*n==256)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:5",
+    "family": "nonlinear-control",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n*n==529)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:6",
+    "family": "nonlinear-control",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n*n==1681)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:7",
+    "family": "nonlinear-control",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n*n==4489)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:8",
+    "family": "nonlinear-control",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n*n==7921)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:9",
+    "family": "nonlinear-control",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n*n==12769)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:10",
+    "family": "nonlinear-control",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n*n==22201)return 7;return 2;}"
+  },
+  {
+    "id": "nonlinear-control:11",
+    "family": "nonlinear-control",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n*n==36481)return 7;return 2;}"
+  },
+  {
+    "id": "rare-side-effect:0",
+    "family": "rare-side-effect",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==169){printf(\"A\");return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:1",
+    "family": "rare-side-effect",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==22){cout<<\"A\";return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:2",
+    "family": "rare-side-effect",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==59){printf(\"A\");return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:3",
+    "family": "rare-side-effect",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==96){cout<<\"A\";return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:4",
+    "family": "rare-side-effect",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==133){printf(\"A\");return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:5",
+    "family": "rare-side-effect",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==170){cout<<\"A\";return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:6",
+    "family": "rare-side-effect",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==23){printf(\"A\");return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:7",
+    "family": "rare-side-effect",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==60){cout<<\"A\";return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:8",
+    "family": "rare-side-effect",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==97){printf(\"A\");return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:9",
+    "family": "rare-side-effect",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==134){cout<<\"A\";return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:10",
+    "family": "rare-side-effect",
+    "language": "c",
+    "input": "300 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n==171){printf(\"A\");return 7;}return 2;}"
+  },
+  {
+    "id": "rare-side-effect:11",
+    "family": "rare-side-effect",
+    "language": "cpp",
+    "input": "300 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n==24){cout<<\"A\";return 7;}return 2;}"
+  },
+  {
+    "id": "division-rewrite:0",
+    "family": "division-rewrite",
+    "language": "c",
+    "input": "0 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n>=188)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:1",
+    "family": "division-rewrite",
+    "language": "cpp",
+    "input": "0 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n>=41)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:2",
+    "family": "division-rewrite",
+    "language": "c",
+    "input": "0 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n>=78)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:3",
+    "family": "division-rewrite",
+    "language": "cpp",
+    "input": "0 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n>=115)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:4",
+    "family": "division-rewrite",
+    "language": "c",
+    "input": "0 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n>=152)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:5",
+    "family": "division-rewrite",
+    "language": "cpp",
+    "input": "0 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n>=189)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:6",
+    "family": "division-rewrite",
+    "language": "c",
+    "input": "0 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n>=42)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:7",
+    "family": "division-rewrite",
+    "language": "cpp",
+    "input": "0 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n>=79)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:8",
+    "family": "division-rewrite",
+    "language": "c",
+    "input": "0 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n>=116)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:9",
+    "family": "division-rewrite",
+    "language": "cpp",
+    "input": "0 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n>=153)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:10",
+    "family": "division-rewrite",
+    "language": "c",
+    "input": "0 999",
+    "source": "#include <stdio.h>\nint main(){int n,pad;scanf(\"%d %d\",&n,&pad);if(n>=190)return n/2;return 2;}"
+  },
+  {
+    "id": "division-rewrite:11",
+    "family": "division-rewrite",
+    "language": "cpp",
+    "input": "0 999",
+    "source": "#include <iostream>\nusing namespace std;\nint main(){int n,pad;cin>>n>>pad;if(n>=43)return n/2;return 2;}"
+  }
+]

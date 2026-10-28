@@ -1,0 +1,79 @@
+{
+  "version": "witness-portfolio-v1",
+  "corpusSha256": "66f0fd69e246beaef9a703c5ecda7bd909974d56e408f39fb66e09dbca607999",
+  "cases": 120,
+  "maxSelectedTests": 8,
+  "maxPoolInputs": 24,
+  "maxChallenges": 10,
+  "maxBranchAnchors": 4,
+  "maxBoundaryAnchors": 2,
+  "stepLimit": 500,
+  "summary": [
+    {
+      "name": "provided-only",
+      "heldOutDetected": 0,
+      "cases": 120,
+      "tests": 120,
+      "replaySteps": 7692,
+      "challengeDetections": 120,
+      "structuralAnchors": 144
+    },
+    {
+      "name": "targeted-eight",
+      "heldOutDetected": 110,
+      "cases": 120,
+      "tests": 960,
+      "replaySteps": 62010,
+      "challengeDetections": 193,
+      "structuralAnchors": 386
+    },
+    {
+      "name": "mutation-only-exact",
+      "heldOutDetected": 49,
+      "cases": 120,
+      "tests": 144,
+      "replaySteps": 8910,
+      "challengeDetections": 193,
+      "structuralAnchors": 216
+    },
+    {
+      "name": "branch-only-exact",
+      "heldOutDetected": 98,
+      "cases": 120,
+      "tests": 230,
+      "replaySteps": 15218,
+      "challengeDetections": 193,
+      "structuralAnchors": 350
+    },
+    {
+      "name": "anchor-preserving-greedy",
+      "heldOutDetected": 110,
+      "cases": 120,
+      "tests": 242,
+      "replaySteps": 15962,
+      "challengeDetections": 193,
+      "structuralAnchors": 386
+    },
+    {
+      "name": "anchor-preserving-exact",
+      "heldOutDetected": 110,
+      "cases": 120,
+      "tests": 242,
+      "replaySteps": 15962,
+      "challengeDetections": 193,
+      "structuralAnchors": 386
+    }
+  ],
+  "planningExecutions": 11556,
+  "planningSteps": 269760,
+  "misleadingMutationSaturation": 71,
+  "limitations": [
+    "Reuses the existing synthetic corpus; this is operator-family holdout, not independent program holdout.",
+    "Mutation generation, coverage-based selection and branch coverage all have prior work.",
+    "Exact means optimal for the finite recorded matrix and lexicographic objective only.",
+    "Planning costs are paid before suite selection; replay compression is not end-to-end speedup.",
+    "Unseen evaluation fault family is excluded from shadow generation and is evaluated after selection.",
+    "Boundary anchors preserve generator center proposals, not solver-proven path reachability.",
+    "Shared AST/IR numeric primitives and bounded execution remain limitations."
+  ]
+}

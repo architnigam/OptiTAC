@@ -10,3 +10,10 @@
 .ml-panel .pane-heading span { font-size: .75rem; color: #476149; }
 .ml-panel code { overflow-wrap: anywhere; }
 .ml-panel .fold { background: transparent; }
+
+.witness-matrix { font-size: .75rem; }
+.witness-matrix td, .witness-matrix th { text-align: center; }
+.witness-matrix td:first-child { text-align: left; }
+.witness-matrix small { display: block; margin-top: .25rem; color: #52614d; }
+.witness-matrix .selected-witness { background: #e2ebd8; }
+.adequacy-panel button { overflow-wrap: anywhere; }

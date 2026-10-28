@@ -1,7 +1,8 @@
 import { executeAST } from './runtime';
 import { executeIR, type IRProgram } from './ir';
 import type { CProgram, RunResult } from './types';
-export interface GuardCase { input: string; reference: RunResult; status: 'eligible' | 'undefined' | 'limited' | 'unsupported' | 'lowering-mismatch' }
+import { generateProbes, type ProbeStrategy } from './research/probes';
+export interface GuardCase { input: string; reference: RunResult; status: 'eligible' | 'undefined' | 'limited' | 'unsupported' | 'lowering-mismatch'; reason?: string; kind?: 'comparison' | 'fixed' | 'random'; line?: number }
 export function matchRuns(a: RunResult, b: RunResult) {
     return a.status === 'returned' && b.status === 'returned' && a.stdout === b.stdout && a.returnValue?.type === b.returnValue?.type && Object.is(a.returnValue?.value, b.returnValue?.value);
 }
@@ -18,11 +19,12 @@ export function guardInputs(inputs: string[]): string[] {
     }
     return [...probes].slice(0, 8);
 }
-export function buildGuard(program: CProgram, ir: IRProgram, inputs: string[], maxSteps: number): GuardCase[] {
-    return guardInputs(inputs).map(input => {
+export function buildGuard(program: CProgram, ir: IRProgram, inputs: string[], maxSteps: number, strategy: ProbeStrategy = 'targeted'): GuardCase[] {
+    return generateProbes(ir, inputs, strategy).map(probe => {
+        const { input } = probe;
         const reference = executeAST(program, input, Math.min(maxSteps, 2000), false);
-        if (reference.status !== 'returned') return { input, reference, status: reference.status === 'undefined' ? 'undefined' : reference.status === 'limited' ? 'limited' : 'unsupported' };
+        if (reference.status !== 'returned') return { ...probe, reference, status: reference.status === 'undefined' ? 'undefined' : reference.status === 'limited' ? 'limited' : 'unsupported' };
         const original = executeIR(program, ir, input, Math.min(maxSteps, 2000), false);
-        return { input, reference, status: original.status === 'limited' ? 'limited' : matchRuns(reference, original) ? 'eligible' : 'lowering-mismatch' };
+        return { ...probe, reference, status: original.status === 'limited' ? 'limited' : matchRuns(reference, original) ? 'eligible' : 'lowering-mismatch' };
     });
 }

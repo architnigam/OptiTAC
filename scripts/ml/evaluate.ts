@@ -9,7 +9,7 @@ import type { Language } from '../../src/core/types';
 
 export async function evaluate() {
     const fixtures = [
-        ...examples.filter(e => !['native', 'undefined'].includes(e.id)).map(e => ({ name: e.id, source: e.source, language: e.language, inputs: e.inputs.split('\n') })),
+        ...examples.filter(e => !['native', 'undefined', 'boundary-demo'].includes(e.id)).map(e => ({ name: e.id, source: e.source, language: e.language, inputs: e.inputs.split('\n') })),
         { name: 'recursive-fibonacci', source: 'int f(int n){if(n<2)return n;return f(n-1)+f(n-2);}int main(){int n;cin>>n;return f(n);}', language: 'cpp' as Language, inputs: ['5', '7'] },
         { name: 'dynamic-join', source: 'int main(){int n;cin>>n;int z=1;if(n>3)z=7;else z=9;return z+2;}', language: 'cpp' as Language, inputs: ['1', '5'] },
         { name: 'lazy-effects', source: 'int main(){int n;cin>>n;int x=0;if(n || (x=3)){}return x;}', language: 'cpp' as Language, inputs: ['0', '3'] },

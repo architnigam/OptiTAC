@@ -1,6 +1,7 @@
 import type { Analysis } from '../core/analyze';
 import modelEvaluation from '../core/ml/evaluation.json';
 import { routeName } from './format';
+import research from '../core/research/evaluation.json';
 
 const percent = (n: number) => `${(n * 100).toFixed(1)}%`;
 export function MLView({ analysis }: { analysis: Analysis }) {
@@ -27,9 +28,15 @@ export function MLView({ analysis }: { analysis: Analysis }) {
             <p className="notice">These are {report.test.rows} synthetic held-out states, including {report.test.informativeRows} with a positive best saving. Similar broad program families occur in every split. This is not an accuracy guarantee on arbitrary C/C++, a runtime speedup, or a measure of compiler correctness.</p>
             <p className="muted">Model: <code>{advice.modelId}</code> · {report.selected.trees} trees · maximum depth {report.selected.depth} · reproducible seed {report.seed}. Retrain locally with <code>npm run train:ml</code>. Raw dataset and evaluation are in <code>docs/ml/</code>.</p>
         </div></details>
+        <details className="fold"><summary>Targeted-testing benchmark · seeded faults</summary><div>
+            <p>{research.cases} generated C/C++ fixtures contain deliberately injected IR faults. Every strategy receives at most {research.maxProbesPerCase} probes per fixture. These are development benchmarks, not discovered production-compiler bugs.</p>
+            <div className="table-wrap"><table><thead><tr><th>Strategy</th><th>Faults detected</th><th>Probe budget</th></tr></thead><tbody><tr><td>Comparison-targeted + fallback</td><td>{research.summary.find(s => s.strategy === 'targeted')!.detected}/{research.cases}</td><td>8 per fixture</td></tr><tr><td>Fixed boundaries</td><td>{research.summary.find(s => s.strategy === 'fixed')!.detected}/{research.cases}</td><td>8 per fixture</td></tr><tr><td>Random, mean across 32 seeds</td><td>{research.randomReplications.meanDetected.toFixed(2)}/{research.cases}</td><td>8 per fixture per seed</td></tr></tbody></table></div>
+            <p>{research.reductions.reproduced} failures replayed after reduction; {research.reductions.routeShortened} routes and {research.reductions.inputShortened} input strings became shorter.</p>
+            <p className="notice">The corpus emphasizes supported affine comparisons, favoring targeted testing. Nonlinear controls expose its limitation. Local reduction is not a globally smallest counterexample, and finite probes do not prove equivalence.</p>
+        </div></details>
         <details className="fold"><summary>Boundary-input audit · {eligible}/{analysis.guard.length} eligible probes</summary><div>
-            <p>Integer stdin probes replace individual values with 0, −1, 1 and 2, up to eight cases. Only defined AST runs that agree with original IR are eligible. Every selected candidate must match those eligible probes too.</p>
-            {analysis.guard.length ? <div className="table-wrap"><table><thead><tr><th>Generated stdin</th><th>Reference audit</th><th>Evidence</th></tr></thead><tbody>{analysis.guard.map(g => <tr key={g.input}><td><code>{g.input}</code></td><td>{g.status}</td><td>{g.status === 'eligible' ? 'Included in candidate checks' : g.reference.diagnostic?.message || 'Inconclusive; excluded from validation'}</td></tr>)}</tbody></table></div> : <p>No suitable integer stdin was supplied, or boundary probes were disabled. No extra coverage is claimed.</p>}
+            <p>Strategy: {analysis.probeStrategy}. Up to eight probes target affine comparison boundaries in main, use fixed boundary values, or use a seeded random baseline. Targeted proposals are hypotheses; actual execution checks their eligibility. Only defined AST runs that agree with original IR are eligible. Every selected candidate must match those eligible probes too.</p>
+            {analysis.guard.length ? <div className="table-wrap"><table><thead><tr><th>Generated stdin</th><th>Generation reason</th><th>Reference audit</th><th>Evidence</th></tr></thead><tbody>{analysis.guard.map(g => <tr key={g.input}><td><code>{g.input}</code></td><td>{g.reason || 'Fixed probe'}</td><td>{g.status}</td><td>{g.status === 'eligible' ? 'Included in candidate checks' : g.reference.diagnostic?.message || 'Inconclusive; excluded from validation'}</td></tr>)}</tbody></table></div> : <p>No suitable integer stdin was supplied, or boundary probes were disabled. No extra coverage is claimed.</p>}
             <p className="muted">Each probe has at most 2,000 interpreter steps. This is bounded stress testing, not a vulnerability scanner, exhaustive testing, or a security sandbox.</p>
         </div></details>
     </section>;

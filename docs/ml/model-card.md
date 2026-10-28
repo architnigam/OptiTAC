@@ -50,7 +50,7 @@ A separate hand-selected development challenge set evaluates **17 programs at th
 
 ## Boundary-input audit
 
-For suitable integer stdin, the audit replaces individual input values with 0, -1, 1 and 2, deduplicates supplied cases and caps generation at eight probes. Each probe has at most 2,000 interpreter steps. Only defined AST executions that agree with original IR are eligible. Every candidate must also match these eligible probes; a candidate timeout is rejected as inconclusive.
+For suitable integer stdin, the audit now defaults to affine-comparison-targeted probes with fixed-value fallback. Fixed and seeded-random modes are available as ablations. It deduplicates supplied cases and caps generation at eight probes. Each probe has at most 2,000 interpreter steps. Only defined AST executions that agree with original IR are eligible. Every candidate must also match these eligible probes; a candidate timeout is rejected as inconclusive. The [research-extension report](../research/report.md) explains the generator, automatic input/pass reduction and its seeded-fault evaluation.
 
 Undefined, unsupported and limited references are displayed and excluded from validation. AST/original-IR disagreement stops optimized acceptance. A regression test injects a transformation that preserves the supplied positive input but changes a negative-only branch; the generated `-1` probe rejects it. Probes run in the existing bounded interpreter; the native service remains compile-only.
 

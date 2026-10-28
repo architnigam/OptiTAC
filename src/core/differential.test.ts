@@ -104,7 +104,7 @@ describe('Every four-pass combination and repeated-loop regressions', () => {
         }
     }, 30000);
     it('retains a genuine uninitialized self-read in a shadowing initializer', () => { const r = analyze('int main(){int x=2;{int x=x;return x;}}'); expect(r.reference[0].diagnostic?.code).toBe('UNINITIALIZED'); expect(r.originalRuns[0].diagnostic?.code).toBe('UNINITIALIZED'); expect(r.searchStatus).toBe('unsafe'); });
-    it('rejects the deliberately broken candidate and retains the selected result', () => { const r = analyze('int main(){int n;cin>>n;return n+1;}', 'cpp', ['3', '8'], 20000, true); const mutation = r.candidates.find(c => c.route[0] === 'mutation')!; expect(mutation.accepted).toBe(false); expect(mutation.checks.some(c => !c.matched)).toBe(true); expect(r.optimizedRuns.map(r => r.returnValue?.value)).toEqual([4, 9]); });
+    it('rejects the deliberately broken candidate and retains the selected result', () => { const r = analyze('int main(){int n;cin>>n;return n+1;}', 'cpp', ['3', '8'], 20000, true); const mutation = r.candidates.find(c => c.route.includes('mutation'))!; expect(mutation.accepted).toBe(false); expect(mutation.checks.some(c => !c.matched)).toBe(true); expect(r.optimizedRuns.map(r => r.returnValue?.value)).toEqual([4, 9]); });
     it('does not mutate the original input IR while exploring routes', () => { const { program, ir } = compileTest('int main(){int x=2;if(x)return x+3;return 9;}'); const original = stable(ir); for (const pass of [conditionalConstants, reachableCode, deadTemporaries, tidyJumps])
         pass(ir, program); expect(stable(ir)).toBe(original); });
 });

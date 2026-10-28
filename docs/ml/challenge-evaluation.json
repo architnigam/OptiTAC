@@ -26,7 +26,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 1,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -37,7 +37,7 @@
           "baselineCandidates": 2,
           "guidedCandidates": 2,
           "guidedStates": 2,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -48,7 +48,7 @@
           "baselineCandidates": 2,
           "guidedCandidates": 2,
           "guidedStates": 2,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -66,7 +66,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -77,7 +77,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -88,7 +88,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -146,7 +146,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -157,7 +157,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -168,7 +168,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -306,7 +306,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -317,7 +317,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -328,7 +328,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -346,7 +346,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -357,7 +357,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -368,7 +368,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -386,7 +386,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -397,7 +397,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -408,7 +408,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -426,7 +426,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -437,7 +437,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -448,7 +448,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -506,7 +506,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -517,7 +517,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -528,7 +528,7 @@
           "baselineCandidates": 0,
           "guidedCandidates": 0,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -546,7 +546,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -557,7 +557,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -568,7 +568,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 0,
-          "eligibleProbes": 4,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -586,7 +586,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 1,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -597,7 +597,7 @@
           "baselineCandidates": 3,
           "guidedCandidates": 3,
           "guidedStates": 3,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -608,7 +608,7 @@
           "baselineCandidates": 3,
           "guidedCandidates": 3,
           "guidedStates": 3,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -626,7 +626,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 1,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -637,7 +637,7 @@
           "baselineCandidates": 5,
           "guidedCandidates": 5,
           "guidedStates": 5,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -648,7 +648,7 @@
           "baselineCandidates": 5,
           "guidedCandidates": 5,
           "guidedStates": 5,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }
@@ -666,7 +666,7 @@
           "baselineCandidates": 1,
           "guidedCandidates": 1,
           "guidedStates": 1,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -677,7 +677,7 @@
           "baselineCandidates": 5,
           "guidedCandidates": 5,
           "guidedStates": 5,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         },
@@ -688,7 +688,7 @@
           "baselineCandidates": 5,
           "guidedCandidates": 5,
           "guidedStates": 5,
-          "eligibleProbes": 3,
+          "eligibleProbes": 8,
           "excludedProbes": 0,
           "allAcceptedObservationsMatch": true
         }

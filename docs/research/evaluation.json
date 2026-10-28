@@ -1,0 +1,9151 @@
+{
+  "schema": 1,
+  "corpusSha256": "66f0fd69e246beaef9a703c5ecda7bd909974d56e408f39fb66e09dbca607999",
+  "cases": 120,
+  "maxProbesPerCase": 8,
+  "maxSteps": 2000,
+  "summary": [
+    {
+      "strategy": "fixed",
+      "detected": 2,
+      "total": 120,
+      "detectionRate": 0.016666666666666666,
+      "probes": 960,
+      "eligible": 960
+    },
+    {
+      "strategy": "random",
+      "detected": 5,
+      "total": 120,
+      "detectionRate": 0.041666666666666664,
+      "probes": 960,
+      "eligible": 960
+    },
+    {
+      "strategy": "targeted",
+      "detected": 110,
+      "total": 120,
+      "detectionRate": 0.9166666666666666,
+      "probes": 960,
+      "eligible": 960
+    }
+  ],
+  "randomReplications": {
+    "seeds": [
+      2674696789,
+      1034165254,
+      3688601015,
+      2048069480,
+      407537945,
+      3061973706,
+      1421442171,
+      4075877932,
+      2435346397,
+      794814862,
+      3449250623,
+      1808719088,
+      168187553,
+      2822623314,
+      1182091779,
+      3836527540,
+      2195996005,
+      555464470,
+      3209900231,
+      1569368696,
+      4223804457,
+      2583272922,
+      942741387,
+      3597177148,
+      1956645613,
+      316114078,
+      2970549839,
+      1330018304,
+      3984454065,
+      2343922530,
+      703390995,
+      3357826756
+    ],
+    "counts": [
+      0,
+      6,
+      0,
+      14,
+      10,
+      11,
+      3,
+      8,
+      12,
+      7,
+      2,
+      9,
+      12,
+      12,
+      9,
+      13,
+      2,
+      12,
+      0,
+      12,
+      6,
+      13,
+      9,
+      4,
+      12,
+      10,
+      12,
+      7,
+      10,
+      12,
+      10,
+      10
+    ],
+    "meanDetected": 8.40625,
+    "minDetected": 0,
+    "maxDetected": 14,
+    "maxProbesPerReplication": 960
+  },
+  "reductions": {
+    "reproduced": 110,
+    "locallyMinimal": 110,
+    "inputShortened": 98,
+    "routeShortened": 110
+  },
+  "byFamily": [
+    {
+      "family": "rare-positive",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "rare-negative",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "comparison-off-by-one",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "affine-alias",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "two-input-affine",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "after-loop",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "short-circuit",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "nonlinear-control",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 2,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 2,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "rare-side-effect",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    },
+    {
+      "family": "division-rewrite",
+      "results": [
+        {
+          "strategy": "fixed",
+          "detected": 0,
+          "total": 12
+        },
+        {
+          "strategy": "random",
+          "detected": 5,
+          "total": 12
+        },
+        {
+          "strategy": "targeted",
+          "detected": 12,
+          "total": 12
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Synthetic seeded faults, not discovered production compiler bugs.",
+    "The corpus was constructed to exercise supported comparison boundaries; this favors the targeted strategy on affine cases.",
+    "A nonlinear family is included to expose the method boundary.",
+    "Equal maximum and actual probe counts are reported; reference AST and original IR share numeric primitives.",
+    "Reduced means locally irreducible under single action deletion and the documented integer simplifications, not globally minimal source."
+  ],
+  "rows": [
+    {
+      "id": "rare-positive:0",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "17 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "17 999",
+        "inputAfter": "17 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:1",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "54 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "54 999",
+        "inputAfter": "54 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:2",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "91 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "91 999",
+        "inputAfter": "91 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:3",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "128 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "128 999",
+        "inputAfter": "128 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:4",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "165 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "165 999",
+        "inputAfter": "165 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:5",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "18 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "18 999",
+        "inputAfter": "18 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:6",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "55 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "55 999",
+        "inputAfter": "55 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:7",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "92 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "92 999",
+        "inputAfter": "92 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:8",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "129 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "129 999",
+        "inputAfter": "129 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:9",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "166 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "166 999",
+        "inputAfter": "166 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:10",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "19 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "19 999",
+        "inputAfter": "19 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-positive:11",
+      "family": "rare-positive",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "56 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "56 999",
+        "inputAfter": "56 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:0",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-36 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-36 999",
+        "inputAfter": "-36 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:1",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-73 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-73 999",
+        "inputAfter": "-73 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:2",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-110 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-110 999",
+        "inputAfter": "-110 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:3",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-147 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-147 999",
+        "inputAfter": "-147 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:4",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-184 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-184 999",
+        "inputAfter": "-184 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:5",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-37 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-37 999",
+        "inputAfter": "-37 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:6",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-74 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-74 999",
+        "inputAfter": "-74 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:7",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-111 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-111 999",
+        "inputAfter": "-111 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:8",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-148 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-148 999",
+        "inputAfter": "-148 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:9",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-185 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-185 999",
+        "inputAfter": "-185 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:10",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-38 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-38 999",
+        "inputAfter": "-38 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-negative:11",
+      "family": "rare-negative",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-75 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "-75 999",
+        "inputAfter": "-75 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:0",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "55 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "55 999",
+        "inputAfter": "55 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:1",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "92 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "92 999",
+        "inputAfter": "92 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:2",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "129 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "129 999",
+        "inputAfter": "129 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:3",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "166 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "166 999",
+        "inputAfter": "166 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:4",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "19 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "19 999",
+        "inputAfter": "19 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:5",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "56 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "56 999",
+        "inputAfter": "56 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:6",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "93 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "93 999",
+        "inputAfter": "93 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:7",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "130 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "130 999",
+        "inputAfter": "130 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:8",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "167 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "167 999",
+        "inputAfter": "167 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:9",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "20 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "20 999",
+        "inputAfter": "20 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:10",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "57 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "57 999",
+        "inputAfter": "57 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "comparison-off-by-one:11",
+      "family": "comparison-off-by-one",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "94 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "94 999",
+        "inputAfter": "94 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:0",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "74 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "74 999",
+        "inputAfter": "74 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:1",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "111 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "111 999",
+        "inputAfter": "111 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:2",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "148 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "148 999",
+        "inputAfter": "148 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:3",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "185 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "185 999",
+        "inputAfter": "185 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:4",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "38 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "38 999",
+        "inputAfter": "38 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:5",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "75 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "75 999",
+        "inputAfter": "75 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:6",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "112 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "112 999",
+        "inputAfter": "112 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:7",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "149 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "149 999",
+        "inputAfter": "149 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:8",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "186 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "186 999",
+        "inputAfter": "186 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:9",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "39 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "39 999",
+        "inputAfter": "39 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:10",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "76 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "76 999",
+        "inputAfter": "76 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "affine-alias:11",
+      "family": "affine-alias",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "113 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "113 999",
+        "inputAfter": "113 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:0",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "93 5",
+            "300 -616"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "93 5",
+        "inputAfter": "93 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:1",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "130 5",
+            "300 -505"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "130 5",
+        "inputAfter": "130 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:2",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "167 5",
+            "300 -394"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "167 5",
+        "inputAfter": "167 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:3",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "20 5",
+            "300 -835"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "20 5",
+        "inputAfter": "20 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:4",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "57 5",
+            "300 -724"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "57 5",
+        "inputAfter": "57 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:5",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "94 5",
+            "300 -613"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "94 5",
+        "inputAfter": "94 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:6",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "131 5",
+            "300 -502"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "131 5",
+        "inputAfter": "131 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:7",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "168 5",
+            "300 -391"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "168 5",
+        "inputAfter": "168 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:8",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "21 5",
+            "300 -832"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "21 5",
+        "inputAfter": "21 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:9",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "58 5",
+            "300 -721"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "58 5",
+        "inputAfter": "58 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:10",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "95 5",
+            "300 -610"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "95 5",
+        "inputAfter": "95 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "two-input-affine:11",
+      "family": "two-input-affine",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "132 5",
+            "300 -499"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 34,
+        "inputBefore": "132 5",
+        "inputAfter": "132 5",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:0",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "112 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "112 999",
+        "inputAfter": "112 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:1",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "149 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "149 999",
+        "inputAfter": "149 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:2",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "186 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "186 999",
+        "inputAfter": "186 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:3",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "39 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "39 999",
+        "inputAfter": "39 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:4",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "76 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "76 999",
+        "inputAfter": "76 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:5",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "113 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "113 999",
+        "inputAfter": "113 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:6",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "150 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "150 999",
+        "inputAfter": "150 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:7",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "187 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "187 999",
+        "inputAfter": "187 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:8",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "40 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "40 999",
+        "inputAfter": "40 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:9",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "77 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "77 999",
+        "inputAfter": "77 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:10",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "114 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "114 999",
+        "inputAfter": "114 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "after-loop:11",
+      "family": "after-loop",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "151 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "151 999",
+        "inputAfter": "151 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:0",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "131 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "131 999",
+        "inputAfter": "131 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:1",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "168 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "168 999",
+        "inputAfter": "168 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:2",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "21 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "21 999",
+        "inputAfter": "21 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:3",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "58 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "58 999",
+        "inputAfter": "58 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:4",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "95 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "95 999",
+        "inputAfter": "95 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:5",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "132 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "132 999",
+        "inputAfter": "132 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:6",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "169 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "169 999",
+        "inputAfter": "169 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:7",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "22 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "22 999",
+        "inputAfter": "22 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:8",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "59 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "59 999",
+        "inputAfter": "59 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:9",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "96 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "96 999",
+        "inputAfter": "96 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:10",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "133 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "133 999",
+        "inputAfter": "133 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "short-circuit:11",
+      "family": "short-circuit",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "170 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "170 999",
+        "inputAfter": "170 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "nonlinear-control:0",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-1 999",
+            "1 999"
+          ]
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "-1 999",
+            "1 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 9,
+        "inputBefore": "-1 999",
+        "inputAfter": "-1 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "nonlinear-control:1",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "2 999"
+          ]
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "2 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 17,
+        "inputBefore": "2 999",
+        "inputAfter": "2 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "nonlinear-control:2",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:3",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:4",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:5",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:6",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:7",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:8",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:9",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:10",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "nonlinear-control:11",
+      "family": "nonlinear-control",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": null
+    },
+    {
+      "id": "rare-side-effect:0",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "169 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "169 999",
+        "inputAfter": "169 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:1",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "22 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "22 999",
+        "inputAfter": "22 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:2",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "59 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "59 999",
+        "inputAfter": "59 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:3",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "96 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "96 999",
+        "inputAfter": "96 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:4",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "133 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "133 999",
+        "inputAfter": "133 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:5",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "170 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "170 999",
+        "inputAfter": "170 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:6",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "23 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "23 999",
+        "inputAfter": "23 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:7",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "60 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "60 999",
+        "inputAfter": "60 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:8",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "97 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "97 999",
+        "inputAfter": "97 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:9",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "134 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "134 999",
+        "inputAfter": "134 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:10",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "171 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "171 999",
+        "inputAfter": "171 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "rare-side-effect:11",
+      "family": "rare-side-effect",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "24 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "24 999",
+        "inputAfter": "24 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:0",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "188 999",
+            "189 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "188 999",
+        "inputAfter": "188 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:1",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "87 999",
+            "48 999"
+          ]
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "41 999",
+            "42 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "41 999",
+        "inputAfter": "41 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:2",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "87 999"
+          ]
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "78 999",
+            "79 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "78 999",
+        "inputAfter": "78 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:3",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "115 999",
+            "116 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "115 999",
+        "inputAfter": "115 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:4",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "152 999",
+            "153 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "152 999",
+        "inputAfter": "152 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:5",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "189 999",
+            "190 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "189 999",
+        "inputAfter": "189 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:6",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "87 999",
+            "48 999"
+          ]
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "42 999",
+            "43 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "42 999",
+        "inputAfter": "42 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:7",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "87 999"
+          ]
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "79 999",
+            "80 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "79 999",
+        "inputAfter": "79 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:8",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "116 999",
+            "117 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "116 999",
+        "inputAfter": "116 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:9",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "153 999",
+            "154 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "153 999",
+        "inputAfter": "153 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:10",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "190 999",
+            "191 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "190 999",
+        "inputAfter": "190 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    },
+    {
+      "id": "division-rewrite:11",
+      "family": "division-rewrite",
+      "strategies": [
+        {
+          "strategy": "fixed",
+          "probes": 8,
+          "eligible": 8,
+          "detected": false,
+          "witnesses": []
+        },
+        {
+          "strategy": "random",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "87 999",
+            "48 999"
+          ]
+        },
+        {
+          "strategy": "targeted",
+          "probes": 8,
+          "eligible": 8,
+          "detected": true,
+          "witnesses": [
+            "43 999",
+            "44 999"
+          ]
+        }
+      ],
+      "randomTrials": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "validPassComparisons": 32,
+      "validPassDisagreements": 0,
+      "reduction": {
+        "status": "reproduced",
+        "localMinimal": true,
+        "oracleCalls": 25,
+        "inputBefore": "43 999",
+        "inputAfter": "43 0",
+        "routeBefore": 3,
+        "routeAfter": 1
+      }
+    }
+  ],
+  "negativeControls": {
+    "comparisons": 3840,
+    "disagreements": 0
+  }
+}

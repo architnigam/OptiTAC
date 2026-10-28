@@ -226,7 +226,7 @@ export function successors(instructions: Instruction[]): number[][] {
         throw new Error(`Missing CFG label ${name}`); return index; };
     return instructions.map((i, index) => i.kind === 'return' ? [] : i.kind === 'jump' ? [target(i.label)] : i.kind === 'branch' ? [target(i.yes), target(i.no)] : index + 1 < instructions.length ? [index + 1] : []);
 }
-export function executeIR(program: CProgram, ir: IRProgram, input = '', maxSteps = 20000, capture = true) {
+export function executeIR(program: CProgram, ir: IRProgram, input = '', maxSteps = 20000, capture = true, onBranch?: (functionName: string, instruction: number, taken: boolean) => void) {
     const body = (fn: FunctionDef): Value | undefined => {
         const instructions = ir.functions.find(f => f.name === fn.name)?.instructions;
         if (!instructions)
@@ -272,7 +272,9 @@ export function executeIR(program: CProgram, ir: IRProgram, input = '', maxSteps
                     break;
                 }
                 case 'branch': {
-                    const name = truth(numeric(machine.evaluate(i.condition), i)) ? i.yes : i.no;
+                    const taken = truth(numeric(machine.evaluate(i.condition), i));
+                    onBranch?.(fn.name, i.id, taken);
+                    const name = taken ? i.yes : i.no;
                     const target = labels.get(name);
                     if (target === undefined)
                         throw new CompileFault('runtime', 'INTERNAL', 'Missing branch label.', i);

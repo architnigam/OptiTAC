@@ -6,6 +6,7 @@ export interface Example {
     source: string;
     inputs: string;
     mission: string;
+    experiment?: 'branch';
 }
 export const examples: Example[] = [
     { id: 'sum', name: 'A sum with a loop', language: 'cpp', inputs: '5\n7\n10', mission: 'Predict the printed sum for the first input.', source: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    const int start = 2 * 3;\n    int total = start - 6;\n    for (int i = 1; i <= n; i++) {\n        total += i;\n    }\n    cout << "sum=" << total << endl;\n    return total;\n}' },
@@ -17,6 +18,7 @@ export const examples: Example[] = [
     { id: 'undefined', name: 'Catch signed overflow', language: 'c', inputs: '', mission: 'Enter undefined if the program has undefined behavior.', source: 'int main(void) {\n    int maximum = 2147483647;\n    return maximum + 1;\n}' },
     { id: 'shortcircuit', name: 'A lazy operator saves the day', language: 'cpp', inputs: '', mission: 'Predict the return value. Does the division execute?', source: 'int main() {\n    int zero = 0;\n    return zero && (10 / zero);\n}' },
     { id: 'native', name: 'Broader C++ syntax check', language: 'cpp', inputs: '', mission: 'This example demonstrates native C++ checking, beyond the visual subset.', source: '#include <vector>\n#include <algorithm>\n\nclass Scores {\npublic:\n    std::vector<int> values;\n};\n\nint main() {\n    Scores scores;\n    scores.values = {7, 3, 9};\n    std::sort(scores.values.begin(), scores.values.end());\n    return scores.values.front();\n}' },
+    { id: 'boundary-demo', name: 'Research demo: find the hidden fault', language: 'cpp', inputs: '300 999', experiment: 'branch', mission: 'Predict the return value for the supplied input, then inspect the localized mutation in Optimize.', source: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int n, unused;\n    cin >> n >> unused;\n    if (n == 137) return 7;\n    return 2;\n}' },
 ];
 export const steps = [
     { id: 'tokens', name: 'Tokens', hint: 'Words and operators', why: 'Lexical analysis recognizes keywords, names, literals, operators and delimiters. Arithmetic, comparison, assignment, bitwise and logical operators are explicitly classified as operators.' },
