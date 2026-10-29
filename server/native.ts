@@ -1,3 +1,4 @@
+import { artifactSection } from './artifacts.ts';
 import {preprocessing} from './admission.ts';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -55,7 +56,7 @@ export async function nativeCheck(source: string, language: 'c' | 'cpp', snippet
             if (artifacts) {
                 const files = await readdir(directory);
                 const contents = async (extension: string) => { const found = files.find(name => name.endsWith('.' + extension)); if (!found)
-                    return '(No artifact emitted by this compiler.)'; const text = await readFile(path.join(directory!, found), 'utf8'); const cfgStart = text.indexOf(';; Function main '); const plain = text.search(/\bmain\s*\([^)]*\)\s*\n?\s*\{/); const start = cfgStart >= 0 ? cfgStart : plain >= 0 ? plain : 0; const next = text.indexOf('\n;; Function ', start + 1); const section = text.slice(start, next >= 0 ? next : undefined); return section.length > 40000 ? section.slice(0, 40000) + '\n[Display truncated at 40,000 characters]' : section; };
+                    return '(No artifact emitted by this compiler.)'; const text = await readFile(path.join(directory!, found), 'utf8'); return artifactSection(text); };
                 output = { original: await contents('original'), gimple: await contents('gimple'), cfg: await contents('cfg'), optimized: await contents('optimized') };
             }
             return { ...base, available: true, success: true, diagnostics: (run.stderr || 'No native syntax diagnostics.').replaceAll(file, '<source>'), ...(output ? { artifacts: output } : {}) };

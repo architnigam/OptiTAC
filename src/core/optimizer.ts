@@ -43,7 +43,20 @@ export function writes(e: Expr): Set<string> { const out = new Set<string>(); if
         if (arg.kind === 'unary' && arg.op === '&' && arg.argument.kind === 'name')
             out.add(arg.argument.name); children(e).forEach(c => writes(c).forEach(n => out.add(n))); return out; }
 export function instructionExpr(i: Instruction): Expr | undefined { return i.kind === 'compute' || i.kind === 'evaluate' ? i.expression : i.kind === 'declare' || i.kind === 'initialize' || i.kind === 'return' ? i.value : i.kind === 'branch' ? i.condition : i.kind === 'output' ? i.value : undefined; }
-export function facts(i: Instruction) { const e = instructionExpr(i); const use = e ? reads(e) : new Set<string>(); const def = e ? writes(e) : new Set<string>(); if (i.kind === 'compute')
+/** A liveness kill requires a write on every normally completing path. */
+export function definiteWrites(e: Expr): Set<string> {
+    if (e.kind === 'conditional') {
+        const yes = definiteWrites(e.yes), no = definiteWrites(e.no);
+        return new Set([...definiteWrites(e.condition), ...[...yes].filter(n => no.has(n))]);
+    }
+    if (e.kind === 'binary' && ['&&', '||'].includes(e.op)) return definiteWrites(e.left);
+    const out = new Set(children(e).flatMap(c => [...definiteWrites(c)]));
+    if (e.kind === 'assign') out.add(e.name);
+    if (e.kind === 'unary' && ['++', '--'].includes(e.op) && e.argument.kind === 'name') out.add(e.argument.name);
+    // scanf may return without assigning; its destination is not a definite kill.
+    return out;
+}
+export function facts(i: Instruction) { const e = instructionExpr(i); const use = e ? reads(e) : new Set<string>(); const def = e ? definiteWrites(e) : new Set<string>(); if (i.kind === 'compute')
     def.add(i.target); if (i.kind === 'declare' || i.kind === 'initialize')
     def.add(i.name); if (i.kind === 'input')
     i.names.forEach(n => def.add(n)); return { use, def }; }

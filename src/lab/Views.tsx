@@ -1,3 +1,5 @@
+import { ControlFlowGraph } from './ControlFlowGraph';
+export { SyntaxTree as Tree } from './SyntaxTree';
 import { FailureView } from './FailureView';
 import { AdequacyView } from './AdequacyView';
 import { MLView } from './MLView';
@@ -6,7 +8,7 @@ import type { ReactNode } from 'react';
 import type { Analysis, RouteCandidate } from '../core/analyze';
 import type { RunResult } from '../core/types';
 import { instructionText, type IRProgram } from '../core/ir';
-import { instructionCount } from '../core/optimizer';
+import { basicBlocks, facts, liveness, instructionCount } from '../core/optimizer';
 import { runLabel, routeName } from './format';
 export function Fold({ title, children, open = false }: {
     title: string;
@@ -19,21 +21,6 @@ export function Code({ children }: {
 export function IRListing({ ir }: {
     ir: IRProgram;
 }) { return <div className="ir-listing">{ir.functions.map(fn => <section key={fn.name}><h4>{fn.name}()</h4><Code>{fn.instructions.map(i => `#${String(i.id).padEnd(4)} ${instructionText(i)}`).join('\n') || '(empty function)'}</Code></section>)}</div>; }
-export function Tree({ value, depth = 0 }: {
-    value: unknown;
-    depth?: number;
-}) {
-    if (!value || typeof value !== 'object')
-        return <span>{String(value)}</span>;
-    if (Array.isArray(value))
-        return <ul className="tree">{value.map((v, i) => <li key={i}><Tree value={v} depth={depth}/></li>)}</ul>;
-    const node = value as Record<string, unknown>;
-    const title = String(node.kind ?? node.name ?? 'Program') + (typeof node.op === 'string' ? ` · operator ${node.op}` : typeof node.name === 'string' && node.kind ? ` · ${node.name}` : '') + (node.kind === 'literal' ? ` · ${(node.data as {
-        value: number;
-    }).value}` : '');
-    const fields = Object.entries(node).filter(([k, v]) => !['kind', 'line', 'column', 'name', 'op', 'snippet', 'language', 'data', 'constant', 'type'].includes(k) && v !== undefined);
-    return <details className="tree-node" open={depth < 2}><summary>{title}</summary>{fields.map(([key, v]) => <div className="tree-field" key={key}><small>{key}</small><Tree value={v} depth={depth + 1}/></div>)}</details>;
-}
 export function TypeView({ analysis }: {
     analysis: Analysis;
 }) { return <><div className="table-wrap"><table><thead><tr><th>Name</th><th>Type</th><th>Scope</th><th>Storage rule</th></tr></thead><tbody>{analysis.symbols.map((s, i) => <tr key={i}><td><code>{s.name}</code></td><td>{s.type}</td><td>{s.scope}</td><td>{s.constant ? 'const' : 'mutable'}</td></tr>)}</tbody></table></div><Fold title="The numeric contract" open><p><b>int:</b> signed 32-bit; division truncates toward zero. Overflow, division by zero and uninitialized reads produce diagnostics, not invented values.</p><p><b>float:</b> IEEE binary32 via rounding at literal conversion, arithmetic and storage. <b>double:</b> binary64. Character storage is restricted to the representable signed 8-bit range; quoted output is ASCII.</p><p>Supported casts perform checked numeric conversions. Floating-to-integer conversion truncates toward zero and requires a representable result. Right shift of a negative signed integer is diagnosed as implementation-defined rather than guessed.</p></Fold><Fold title="What the semantic checker rejects"><p>Undeclared names, duplicate names in one scope, const writes, wrong function arity, invalid scalar operands, float remainder/bitwise operands, and expression evaluation-order dependencies. Cases requiring unsupported language features stop explicitly.</p></Fold></>; }
@@ -42,8 +29,14 @@ export function FlowView({ analysis }: {
 }) {
     const [selected, setSelected] = useState(analysis.blocks[0]?.id ?? '');
     const [original, setOriginal] = useState(false);
-    const block = analysis.blocks.find(b => b.id === selected);
-    return <><div className="view-toolbar"><span>{analysis.blocks.length} basic blocks in selected IR</span><button onClick={() => setOriginal(!original)}>{original ? 'Show control-flow blocks' : 'Show full original IR'}</button></div>{original && analysis.original ? <IRListing ir={analysis.original}/> : <><div className="cfg-map" aria-label="Control-flow blocks">{analysis.blocks.map(b => <button key={b.id} aria-pressed={selected === b.id} className={selected === b.id ? 'active' : ''} onClick={() => setSelected(b.id)}><strong>{b.id}</strong><span>{b.instructions.length} instructions</span><small>→ {b.successors.join(' / ') || 'exit'}</small></button>)}</div>{block && <><h3>{block.id}</h3><Code>{block.instructions.map(i => `#${i.id} ${instructionText(i)}`).join('\n')}</Code><div className="edge-links"><span>Next blocks:</span>{block.successors.map(id => <button key={id} onClick={() => setSelected(id)}>{id} →</button>)}{!block.successors.length && <span>Function exit</span>}</div><Fold title="Backward liveness for this block"><p><b>Live in:</b> {block.liveIn.join(', ') || '(none)'}</p><p><b>Live out:</b> {block.liveOut.join(', ') || '(none)'}</p><p>IN = USE ∪ (OUT − DEF); OUT is the union of successor IN sets. These facts iterate to a fixed point.</p></Fold></>}</>}<Fold title="Reading the IR"><p>A name such as total#2 identifies a particular declaration, so shadowed source names cannot be confused. $t names are compiler temporaries. Scope and unwind instructions preserve block lifetimes through loops, break and continue.</p><p>Ordinary arithmetic is decomposed into small steps. lazy(...) retains a short-circuit or conditional expression without eagerly evaluating its other path. Its internal expression is interpreted lazily; it is not presented as a single machine operation.</p></Fold></>;
+    const [graphSource, setGraphSource] = useState('original');
+    const ir = graphSource === 'original' ? analysis.original : analysis.optimized;
+    const blocks = ir ? basicBlocks(ir) : analysis.blocks;
+    const block = blocks.find(b => b.id === selected) ?? blocks[0];
+    const code = ir?.functions.find(f => f.name === block?.function)?.instructions;
+    const live = code ? liveness(code) : undefined;
+    const sets = (v: Iterable<string>) => [...v].sort().join(', ') || '∅';
+    return <><div className="view-toolbar"><label>CFG &amp; liveness source<select aria-label="CFG source" value={graphSource} onChange={e => setGraphSource(e.target.value)}><option value="original">Original IR</option><option value="optimized">Selected optimized IR</option></select></label><span>{blocks.length} basic blocks</span><button onClick={() => setOriginal(!original)}>{original ? 'Show control-flow blocks' : 'Show full original IR'}</button></div>{original && analysis.original ? <IRListing ir={analysis.original}/> : <><ControlFlowGraph blocks={blocks} selected={block?.id ?? selected} onSelect={setSelected}/>{block && <><h3>{block.id}</h3><Code>{block.instructions.map(i => `#${i.id} ${instructionText(i)}`).join('\n')}</Code><div className="edge-links"><span>Next blocks:</span>{block.successors.map(id => <button key={id} onClick={() => setSelected(id)}>{id} →</button>)}{!block.successors.length && <span>Function exit</span>}</div><Fold title="Backward liveness for this block" open><p>A variable is live when its current value may be read on a later path before being overwritten. ∅ means no values are needed, not an analysis failure.</p><p><b>Live in:</b> {sets(block.liveIn)}</p><p><b>Live out:</b> {sets(block.liveOut)}</p><p>IN = USE ∪ (OUT − DEF); OUT is the union of successor IN sets. {live?.iterations ?? 0} backward sweeps reached a fixed point for this function. Conditional writes are not treated as guaranteed overwrites.</p><div className="table-wrap"><table aria-label="Instruction liveness"><thead><tr><th>Instruction</th><th>USE</th><th>DEF (definite)</th><th>Live before</th><th>Live after</th></tr></thead><tbody>{block.instructions.map((i, offset) => { const f = facts(i), n = block.start + offset; return <tr key={i.id}><td><code>#{i.id} {instructionText(i)}</code></td><td>{sets(f.use)}</td><td>{sets(f.def)}</td><td>{sets(live?.before[n] ?? [])}</td><td>{sets(live?.after[n] ?? [])}</td></tr>; })}</tbody></table></div><p className="muted">$t names are temporary values; # suffixes distinguish scoped declarations. Original and optimized IR can have different live sets because optimization removes or replaces reads.</p></Fold></>}</>}<Fold title="Reading the IR"><p>A name such as total#2 identifies a particular declaration, so shadowed source names cannot be confused. $t names are compiler temporaries. Scope and unwind instructions preserve block lifetimes through loops, break and continue.</p><p>Ordinary arithmetic is decomposed into small steps. lazy(...) retains a short-circuit or conditional expression without eagerly evaluating its other path. Its internal expression is interpreted lazily; it is not presented as a single machine operation.</p></Fold></>;
 }
 function CandidateChecks({ candidate }: {
     candidate: RouteCandidate;
