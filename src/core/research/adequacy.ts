@@ -1,3 +1,4 @@
+import { EvidenceScheduler, type Decision } from './adaptive';
 import { executeIR, type IRProgram } from '../ir';
 import { executeAST } from '../runtime';
 import { instructionExpr, stable } from '../optimizer';
@@ -51,6 +52,7 @@ export interface AdequacyAudit {
     poolAnchors: number;
     boundarySites: string[];
     executions: number; planningSteps: number; maxSteps: number;
+    scheduling?: { policy: string; executionBudget: number; remainingInputs: number; stop: string; decisions: Decision[] };
     quarantined: boolean;
     note: string;
 }
@@ -67,13 +69,22 @@ export function witnessPool(ir: IRProgram, inputs: string[]) {
     for (let rank = 0; rank < 8; rank++) queues.forEach((q, k) => { if (q[rank]) add(q[rank].input, variants[k], q[rank].boundarySite); });
     return pool;
 }
-export function auditAdequacy(program: CProgram, original: IRProgram, subject: IRProgram, inputs: string[], subjectRoute: string[], maxSteps: number, options: { excluded?: FaultFamily; hotIds?: number[]; budget?: number } = {}): AdequacyAudit {
+export function auditAdequacy(program: CProgram, original: IRProgram, subject: IRProgram, inputs: string[], subjectRoute: string[], maxSteps: number, options: { excluded?: FaultFamily; hotIds?: number[]; budget?: number; adaptive?: boolean; executionBudget?: number; fifo?: boolean } = {}): AdequacyAudit {
+    if (options.executionBudget !== undefined && (!Number.isFinite(options.executionBudget) || options.executionBudget < 0)) throw Error('Audit execution budget must be finite and nonnegative.');
     const faults = shadowFaults(subject, options.excluded, options.hotIds), steps = Math.min(maxSteps, 500);
     const sites = original.functions.flatMap(fn => fn.instructions.filter(i => i.kind === 'branch').map(i => ({ function: fn.name, instruction: i.id, line: i.line }))).sort((a, b) => Number(options.hotIds?.includes(b.instruction)) - Number(options.hotIds?.includes(a.instruction))).slice(0, 2);
     const pool = witnessPool(original, inputs), boundarySites = [...new Set(pool.flatMap(p => p.boundarySites))].slice(0, 2);
     const audit: AdequacyAudit = { version: 'witness-portfolio-v1', subjectRoute: [...subjectRoute], challenges: faults.map(({ ir: _ir, ...rest }) => { void _ir; return rest; }), probes: [], portfolio: { indices: [], mask: 0, anchors: 0, covered: 0, cost: 0, states: 1 }, providedMask: 0, poolMask: 0, survivors: [], anchorSites: sites, boundarySites, poolAnchors: 0, executions: 0, planningSteps: 0, maxSteps: steps, quarantined: false, note: faults.length ? 'Coverage concerns only the generated, capped challenge set.' : 'No shadow challenges generated: no supported sites, all sites excluded, or the 3,000-instruction audit limit was exceeded. No mutation-adequacy claim is made.' };
     const run = (fn: () => RunResult) => { const result = fn(); audit.executions++; audit.planningSteps += result.steps; return result; };
-    for (const proposal of pool) {
+    const scheduler = new EvidenceScheduler(), pending = [...pool];
+    const executionBudget = Math.max(0, Math.min(312, Math.floor(options.executionBudget ?? 64)));
+    while (pending.length) {
+        // Reserve a complete row before starting: never truncate a comparison into a false match.
+        if (options.adaptive && audit.executions + 3 + faults.length > executionBudget) break;
+        const proposal = pending.splice(options.adaptive && !options.fifo ? scheduler.choose(pending) : 0, 1)[0];
+        const startSteps = audit.planningSteps;
+        let observedMask = 0, observedAnchors = 0;
+        try {
         const reference = run(() => executeAST(program, proposal.input, steps, false));
         const probe: AdequacyProbe = { ...proposal, status: 'eligible', mask: 0, anchors: 0, cost: reference.steps, cells: [] };
         audit.probes.push(probe);
@@ -92,8 +103,12 @@ export function auditAdequacy(program: CProgram, original: IRProgram, subject: I
             const state = mutated.status === 'limited' ? 'limited' : matchRuns(reference, mutated) ? 'matched' : 'detected';
             probe.cells.push(state); if (state === 'detected') probe.mask |= 1 << k;
         }
+        observedMask = probe.mask; observedAnchors = probe.anchors;
         audit.poolMask |= probe.mask; audit.poolAnchors |= probe.anchors; if (proposal.origin === 'provided') audit.providedMask |= probe.mask;
     }
+        finally { scheduler.observe(proposal.input, proposal.origin, observedMask, observedAnchors, audit.planningSteps - startSteps); }
+    }
+    if (options.adaptive) audit.scheduling = { policy: options.fifo ? 'fixed proposal order' : 'cost-aware online exploration heuristic', executionBudget, remainingInputs: pending.length, stop: pending.length ? 'Execution budget reached; untested inputs remain.' : 'Finite proposal pool exhausted; correctness remains unproved.', decisions: scheduler.history };
     audit.portfolio = exactPortfolio(audit.probes.map(p => ({ mask: p.mask, cost: p.cost, anchors: p.status === 'eligible' ? p.anchors : 0 })), options.budget ?? 8);
     audit.survivors = faults.filter((_, k) => !(audit.portfolio.mask & (1 << k))).map(f => f.id);
     return audit;

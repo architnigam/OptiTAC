@@ -9,6 +9,11 @@ export function AdequacyView({ audit }: { audit: AdequacyAudit | undefined }) {
     return <section className="ml-panel adequacy-panel" aria-label="Validation-quality audit">
         <div className="pane-heading"><h3>Can these tests expose a wrong rewrite?</h3><span>{audit.survivors.length} unresolved challenges</span></div>
         <p>Provided inputs distinguish {bitCount(audit.providedMask)}/{audit.challenges.length} local fault challenges. The selected audit suite distinguishes {audit.portfolio.covered}/{audit.challenges.length} using {selected.length} inputs.</p>
+        {audit.scheduling && <details className="fold" open><summary>Adaptive evidence trail: {audit.executions}/{audit.scheduling.executionBudget} executions</summary><div>
+            <p>Tests are chosen online. Newly distinguished challenges and branch anchors reward a generator; measured interpreter steps penalize expensive choices. Untried generators receive exploration priority. This is a heuristic, not a statistical guarantee.</p>
+            <div className="table-wrap"><table><thead><tr><th>Step</th><th>Generator / input</th><th>New challenges</th><th>New anchors</th><th>Planning steps</th></tr></thead><tbody>{audit.scheduling.decisions.map((d, i) => <tr key={i}><td>{i + 1}</td><td>{d.origin}: {d.input || '(empty)'}</td><td>{d.newChallenges}</td><td>{d.newAnchors}</td><td>{d.steps}</td></tr>)}</tbody></table></div>
+            <p className="notice">{audit.scheduling.stop} {audit.scheduling.remainingInputs} proposals untested. Supplied checks and optimization guards run separately. Budget exhaustion never means verified.</p>
+        </div></details>}
         {audit.quarantined && <p className="notice warning">The audit found an actual selected-IR disagreement. That candidate was quarantined and original IR restored.</p>}
         <p className="muted">These intentionally incorrect IR copies never enter optimization selection. A detected challenge measures test discrimination, not the probability that your compiler is correct.</p>
         <p className="muted">{audit.note}</p>

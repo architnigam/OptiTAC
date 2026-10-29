@@ -10,7 +10,7 @@ import { buildGuard, matchRuns, type GuardCase } from './guard';
 import type { ProbeStrategy } from './research/probes';
 import { diagnoseFailure, returnMutation, branchMutation, type FailureEvidence } from './research/diagnose';
 import { auditAdequacy, type AdequacyAudit } from './research/adequacy';
-export interface SearchOptions { useML?: boolean; stress?: boolean; candidateBudget?: number; probeStrategy?: ProbeStrategy; diagnose?: boolean; mutationKind?: 'return' | 'branch'; evidenceAudit?: boolean }
+export interface SearchOptions { useML?: boolean; stress?: boolean; candidateBudget?: number; probeStrategy?: ProbeStrategy; diagnose?: boolean; mutationKind?: 'return' | 'branch'; evidenceAudit?: boolean; adaptiveAudit?: boolean }
 export function observationsMatch(a: RunResult, b: RunResult): boolean {
     return matchRuns(a, b);
 }
@@ -165,7 +165,7 @@ export function analyze(source: string, language: Language = 'cpp', inputs: stri
         result.optimizedRuns = result.inputs.map(input => executeIR(result.program!, search.best, input, maxSteps, true));
         if (options.evidenceAudit && search.status === 'validated') {
             const hotIds = result.candidates.filter(c => c.accepted && c.route.every((id, k) => result.route[k] === id)).flatMap(c => c.logs.map(l => l.id));
-            result.adequacy = auditAdequacy(result.program, result.original, search.best, result.inputs, result.route, maxSteps, { hotIds });
+            result.adequacy = auditAdequacy(result.program, result.original, search.best, result.inputs, result.route, maxSteps, { hotIds, adaptive: options.adaptiveAudit === true });
             if (result.adequacy.probes.some(p => p.status === 'lowering-mismatch')) {
                 result.optimized = undefined; result.optimizedRuns = []; result.route = []; result.searchStatus = 'unsafe';
                 throw new CompileFault('runtime', 'LOWERING_MISMATCH', 'The evidence audit exposed AST/original-IR disagreement. Optimized output is withheld.');
